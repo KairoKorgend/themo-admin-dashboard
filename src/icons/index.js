@@ -5,8 +5,8 @@ import {
   cilSun,
   cilLockLocked,
   cilSpeedometer,
-  cilDrop,
-  cilPencil,
+  cilDevices,
+  cilPeople,
   cilSettings,
   cilUser,
 } from "@coreui/icons";
@@ -18,8 +18,8 @@ export {
   cilSun,
   cilLockLocked,
   cilSpeedometer,
-  cilDrop,
-  cilPencil,
+  cilDevices,
+  cilPeople,
   cilSettings,
   cilUser,
 };

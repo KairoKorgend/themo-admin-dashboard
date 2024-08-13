@@ -1,5 +1,4 @@
 import React from "react";
-import { CNavItem } from "@coreui/react";
 
 import { AppNavItem } from "src/components/navigation/AppNavItem.jsx";
 import { AppIcon } from "src/components/ui-elements/index";
@@ -16,15 +15,15 @@ const _nav = [
   },
   {
     component: AppNavItem,
-    name: "Colors",
-    to: "/theme/colors",
-    icon: <AppIcon name="cilDrop" customClassName="nav-icon" />,
+    name: "Devices",
+    to: "/devices",
+    icon: <AppIcon name="cilDevices" customClassName="nav-icon" />,
   },
   {
     component: AppNavItem,
-    name: "Typography",
-    to: "/theme/typography",
-    icon: <AppIcon name="cilPencil" customClassName="nav-icon" />,
+    name: "Users",
+    to: "/users",
+    icon: <AppIcon name="cilPeople" customClassName="nav-icon" />,
   },
 ];
 
