@@ -6,12 +6,12 @@ import { useColorModes } from "@coreui/react";
 import AppSpinner from "./components/ui-elements/AppSpinner.jsx";
 import "./scss/style.scss";
 
-const AppLayout = React.lazy(() => import("./layout/AppLayout"));
+const AppLayout = React.lazy(() => import("./layout/AppLayout.jsx"));
 
 // Pages
-const Login = React.lazy(() => import("./views/pages/login/Login"));
-const Page404 = React.lazy(() => import("./views/pages/page404/Page404"));
-const Page500 = React.lazy(() => import("./views/pages/page500/Page500"));
+const Login = React.lazy(() => import("./views/pages/login/Login.js"));
+const Page404 = React.lazy(() => import("./views/pages/page404/Page404.js"));
+const Page500 = React.lazy(() => import("./views/pages/page500/Page500.js"));
 
 const App = () => {
   const { isColorModeSet, setColorMode } = useColorModes(

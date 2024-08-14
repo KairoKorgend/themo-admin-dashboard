@@ -6,6 +6,7 @@ import { useColorModes } from "@coreui/react";
  *
  * @returns {Object} Contains the current colorMode and a setColorMode function.
  */
+
 const useAppColorMode = () => {
   // Use the CoreUI useColorModes hook with a default theme key.
   const { colorMode, setColorMode } = useColorModes(

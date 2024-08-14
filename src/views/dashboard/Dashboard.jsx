@@ -3,13 +3,14 @@ import { getStyle } from "@coreui/utils";
 
 import { AppCol, AppRow } from "src/components/layout/index";
 import {
+  AppWidgetStatsF,
   AppCard,
   AppCardBody,
   AppButton,
   AppButtonGroup,
 } from "src/components/ui-elements/index";
 import { AppLineChart } from "src/components/charts/index";
-import WidgetsDropdown from "../widgets/WidgetsDropdown";
+import { AppIcon } from "src/components/ui-elements/index";
 
 const Dashboard = () => {
   const random = () => Math.round(Math.random() * 100);
@@ -38,7 +39,40 @@ const Dashboard = () => {
 
   return (
     <>
-      <WidgetsDropdown className="mb-4" />
+      <AppRow>
+        <AppCol xs={12} lg={3}>
+          <AppWidgetStatsF
+            color="success"
+            icon={<AppIcon name="cilDevices" height={24} />}
+            title="Devices Online"
+            value="48 651"
+          />
+        </AppCol>
+        <AppCol xs={12} lg={3}>
+          <AppWidgetStatsF
+            color="secondary"
+            icon={<AppIcon name="cilDevices" height={24} />}
+            title="Devices Offline"
+            value="27 487"
+          />
+        </AppCol>
+        <AppCol xs={12} lg={3}>
+          <AppWidgetStatsF
+            color="info"
+            icon={<AppIcon name="cilPeople" height={24} />}
+            title="Total Clients"
+            value="117 358"
+          />
+        </AppCol>
+        <AppCol xs={12} lg={3}>
+          <AppWidgetStatsF
+            color="danger"
+            icon={<AppIcon name="cilBug" height={24} />}
+            title="Total Errors"
+            value="8"
+          />
+        </AppCol>
+      </AppRow>
       <AppCard className="mb-4">
         <AppCardBody>
           <AppRow>

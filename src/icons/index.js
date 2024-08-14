@@ -9,6 +9,7 @@ import {
   cilPeople,
   cilSettings,
   cilUser,
+  cilBug,
 } from "@coreui/icons";
 
 export {
@@ -22,4 +23,5 @@ export {
   cilPeople,
   cilSettings,
   cilUser,
+  cilBug,
 };
