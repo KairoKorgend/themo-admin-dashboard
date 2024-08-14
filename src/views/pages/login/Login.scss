@@ -1,13 +1,81 @@
-.login-container {
-  background-color: var(--cui-bg-body-tertiary);
+body #l-bg {
+  position: relative;
   min-height: 100vh;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: center;
 
-  .login-card {
-    padding: 2rem;
-    border-radius: 0.5rem;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("src/assets/images/login-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.1;
+    z-index: 1;
   }
+
+  .login-container {
+    position: relative;
+    z-index: 2;
+    background-color: var(--cui-bg-body-tertiary);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 2rem;
+    margin-top: -50px;
+
+    .login-card {
+      width: 100%;
+      max-width: 500px;
+      padding: 2rem;
+      border-radius: 0.5rem;
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    img {
+      width: 200px;
+      border-radius: 50%;
+    }
+
+    .login-form {
+      width: 100%;
+    }
+
+    // Centering the button
+    .center-button {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+
+.forgot-pw-btn {
+  text-decoration: none;
+  margin-top: 8px;
+}
+
+.register-text {
+  margin-top: 20px;
+}
+
+.login-btn {
+  width: 100px;
+}
+
+.signup-btn {
+  width: 130px;
 }

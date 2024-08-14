@@ -12,6 +12,8 @@ import {
 import { AppLineChart } from "src/components/charts/index";
 import { AppIcon } from "src/components/ui-elements/index";
 
+import "./Dashboard.scss";
+
 const Dashboard = () => {
   const chartData = {
     labels: ["January", "February", "March", "April", "May", "June", "July"],
@@ -29,6 +31,7 @@ const Dashboard = () => {
 
   return (
     <>
+      <h3 className="content-header">Welcome back, Priit!</h3>
       <AppRow>
         <AppCol xs={12} lg={3}>
           <AppWidgetStatsF

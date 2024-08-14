@@ -1,3 +1,4 @@
+export { AppAvatar } from "./AppAvatar.jsx";
 export { AppButton } from "./AppButton.jsx";
 export { AppButtonGroup } from "./AppButtonGroup.jsx";
 export { AppCard } from "./AppCard.jsx";

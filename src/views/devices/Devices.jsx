@@ -68,6 +68,7 @@ const Devices = () => {
 
   return (
     <>
+      <h3 className="content-header">Device Management</h3>
       <AppCard className="mb-4 mt-4">
         <AppCardBody>
           <AppRow>

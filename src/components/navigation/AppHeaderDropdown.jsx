@@ -7,7 +7,9 @@ import {
   AppDropdownMenu,
   AppDropdownToggle,
 } from "src/components/navigation/index";
-import { AppIcon } from "src/components/ui-elements/index";
+import { AppIcon, AppAvatar } from "src/components/ui-elements/index";
+
+import avatar from "src/assets/images/avatar.jpg";
 
 export const AppHeaderDropdown = () => {
   const navigate = useNavigate();
@@ -18,8 +20,12 @@ export const AppHeaderDropdown = () => {
 
   return (
     <AppDropdown variant="nav-item">
-      <AppDropdownToggle placement="bottom-end" className="py-0 pe-0">
-        <AppIcon name="cilUser" size="xl" className="mt-2" />
+      <AppDropdownToggle
+        placement="bottom-end"
+        className="py-0 pe-0"
+        caret={false}
+      >
+        <AppAvatar src={avatar} size="md" />
       </AppDropdownToggle>
       <AppDropdownMenu className="pt-2" placement="bottom-end">
         <AppDropdownItem href="#">

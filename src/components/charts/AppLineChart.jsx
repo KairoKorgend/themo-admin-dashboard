@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { CChartLine } from "@coreui/react-chartjs";
 import { getStyle } from "@coreui/utils";
+import "./AppLineChart.scss";
 
 export const AppLineChart = ({ data, options }) => {
   const chartRef = useRef(null);
@@ -82,12 +83,14 @@ export const AppLineChart = ({ data, options }) => {
   };
 
   return (
-    <CChartLine
-      ref={chartRef}
-      style={{ height: "300px", marginTop: "40px" }}
-      data={data}
-      options={{ ...defaultOptions, ...options }}
-    />
+    <div className="chart-container">
+      <CChartLine
+        ref={chartRef}
+        style={{ height: "300px", marginTop: "40px" }}
+        data={data}
+        options={{ ...defaultOptions, ...options }}
+      />
+    </div>
   );
 };
 
