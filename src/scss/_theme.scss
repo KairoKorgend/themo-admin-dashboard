@@ -1,5 +1,21 @@
 body {
-  background-color: var(--cui-tertiary-bg);
+  position: relative;
+  z-index: 0; /* Ensure the body content is above the pseudo-element */
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("src/assets/images/login-bg.jpg");
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    opacity: 0.1; /* Sets the opacity of the background image */
+    z-index: -1; /* Places the pseudo-element behind the body content */
+  }
 }
 
 .wrapper {
@@ -60,7 +76,20 @@ body {
 @if $enable-dark-mode {
   @include color-mode(dark) {
     body {
-      background-color: var(--cui-dark-bg-subtle);
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("src/assets/images/login-bg.jpg");
+        background-size: cover; /* Ensures the image covers the entire background */
+        background-position: center; /* Centers the image */
+        background-repeat: no-repeat; /* Prevents the image from repeating */
+        opacity: 0.1; /* Sets the opacity of the background image */
+        z-index: -1; /* Places the pseudo-element behind the body content */
+      }
     }
 
     .footer {
