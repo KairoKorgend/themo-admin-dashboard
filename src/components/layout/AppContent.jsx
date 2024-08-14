@@ -3,7 +3,13 @@ import { Navigate, Route, Routes } from "react-router-dom";
 
 import AppSpinner from "src/components/ui-elements/AppSpinner.jsx";
 import { AppContainer } from "src/components/layout/index";
-import routes from "src/routes.js";
+
+const Dashboard = React.lazy(() => import("src/views/dashboard/Dashboard.jsx"));
+
+const routes = [
+  { path: "/", exact: true, name: "Home" },
+  { path: "/dashboard", name: "Dashboard", element: Dashboard },
+];
 
 const AppContent = () => {
   return (

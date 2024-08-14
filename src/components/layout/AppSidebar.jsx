@@ -8,8 +8,30 @@ import {
 } from "src/components/layout/index";
 import { AppCloseButton } from "src/components/ui-elements/index";
 import { AppSidebarNav } from "src/components/navigation/AppSidebarNav";
+import { AppNavItem } from "src/components/navigation/AppNavItem.jsx";
+import { AppIcon } from "src/components/ui-elements/index";
 import logo from "src/assets/brand/logo.svg";
-import navigation from "src/_nav";
+
+const navigation = [
+  {
+    component: AppNavItem,
+    name: "Dashboard",
+    to: "/dashboard",
+    icon: <AppIcon name="cilSpeedometer" customClassName="nav-icon" />,
+  },
+  {
+    component: AppNavItem,
+    name: "Devices",
+    to: "/devices",
+    icon: <AppIcon name="cilDevices" customClassName="nav-icon" />,
+  },
+  {
+    component: AppNavItem,
+    name: "Users",
+    to: "/users",
+    icon: <AppIcon name="cilPeople" customClassName="nav-icon" />,
+  },
+];
 
 const AppSidebar = () => {
   const dispatch = useDispatch();
