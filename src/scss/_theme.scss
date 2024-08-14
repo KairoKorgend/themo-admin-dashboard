@@ -1,6 +1,6 @@
 body {
   position: relative;
-  z-index: 0; /* Ensure the body content is above the pseudo-element */
+  z-index: 0;
 
   &::before {
     content: "";
@@ -10,11 +10,11 @@ body {
     width: 100%;
     height: 100%;
     background-image: url("src/assets/images/login-bg.jpg");
-    background-size: cover; /* Ensures the image covers the entire background */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    opacity: 0.1; /* Sets the opacity of the background image */
-    z-index: -1; /* Places the pseudo-element behind the body content */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.1;
+    z-index: -1;
   }
 }
 
@@ -84,11 +84,11 @@ body {
         width: 100%;
         height: 100%;
         background-image: url("src/assets/images/login-bg.jpg");
-        background-size: cover; /* Ensures the image covers the entire background */
-        background-position: center; /* Centers the image */
-        background-repeat: no-repeat; /* Prevents the image from repeating */
-        opacity: 0.1; /* Sets the opacity of the background image */
-        z-index: -1; /* Places the pseudo-element behind the body content */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0.1;
+        z-index: -1;
       }
     }
 

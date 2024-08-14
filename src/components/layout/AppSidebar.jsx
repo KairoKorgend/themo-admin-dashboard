@@ -31,6 +31,12 @@ const navigation = [
     to: "/users",
     icon: <AppIcon name="cilPeople" customClassName="nav-icon" />,
   },
+  {
+    component: AppNavItem,
+    name: "Monitoring",
+    to: "/users",
+    icon: <AppIcon name="cilMagnifyingGlass" customClassName="nav-icon" />,
+  },
 ];
 
 const AppSidebar = () => {
