@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 import {
   AppDropdown,
@@ -9,6 +10,12 @@ import {
 import { AppIcon } from "src/components/ui-elements/index";
 
 export const AppHeaderDropdown = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    navigate("/login");
+  };
+
   return (
     <AppDropdown variant="nav-item">
       <AppDropdownToggle placement="bottom-end" className="py-0 pe-0">
@@ -23,7 +30,7 @@ export const AppHeaderDropdown = () => {
           <AppIcon name="cilSettings" className="me-2" />
           Settings
         </AppDropdownItem>
-        <AppDropdownItem href="#">
+        <AppDropdownItem onClick={handleLogout}>
           <AppIcon name="cilLockLocked" className="me-2" />
           Log out
         </AppDropdownItem>

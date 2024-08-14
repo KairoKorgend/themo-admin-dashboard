@@ -13,26 +13,16 @@ import { AppLineChart } from "src/components/charts/index";
 import { AppIcon } from "src/components/ui-elements/index";
 
 const Dashboard = () => {
-  const random = () => Math.round(Math.random() * 100);
-
   const chartData = {
     labels: ["January", "February", "March", "April", "May", "June", "July"],
     datasets: [
       {
-        label: "My Second dataset",
+        label: "Total users",
         backgroundColor: "transparent",
         borderColor: getStyle("--cui-success"),
         pointHoverBackgroundColor: getStyle("--cui-success"),
         borderWidth: 3,
-        data: [
-          random(50, 200),
-          random(50, 200),
-          random(50, 200),
-          random(50, 200),
-          random(50, 200),
-          random(50, 200),
-          random(50, 200),
-        ],
+        data: [70642, 75105, 90763, 105420, 110005, 112000, 117358],
       },
     ],
   };

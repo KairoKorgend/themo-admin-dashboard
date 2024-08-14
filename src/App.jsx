@@ -9,7 +9,7 @@ import "./scss/style.scss";
 const AppLayout = React.lazy(() => import("./layout/AppLayout.jsx"));
 
 // Pages
-const Login = React.lazy(() => import("./views/pages/login/Login.js"));
+const Login = React.lazy(() => import("./views/pages/login/Login.jsx"));
 const Page404 = React.lazy(() => import("./views/pages/page404/Page404.js"));
 const Page500 = React.lazy(() => import("./views/pages/page500/Page500.js"));
 

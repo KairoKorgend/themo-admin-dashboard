@@ -2,8 +2,26 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "node:path";
 import autoprefixer from "autoprefixer";
+import { exec } from "child_process";
 
 export default defineConfig(() => {
+  // Start ngrok when the Vite server starts
+  const startNgrok = () => {
+    const ngrok = exec("ngrok http 3000");
+
+    ngrok.stdout.on("data", (data) => {
+      console.log(`ngrok: ${data}`);
+    });
+
+    ngrok.stderr.on("data", (data) => {
+      console.error(`ngrok error: ${data}`);
+    });
+
+    ngrok.on("close", (code) => {
+      console.log(`ngrok process exited with code ${code}`);
+    });
+  };
+
   return {
     base: "./",
     build: {
@@ -11,9 +29,7 @@ export default defineConfig(() => {
     },
     css: {
       postcss: {
-        plugins: [
-          autoprefixer({}), // add options if needed
-        ],
+        plugins: [autoprefixer({})],
       },
     },
     esbuild: {
@@ -44,6 +60,7 @@ export default defineConfig(() => {
       proxy: {
         // https://vitejs.dev/config/server-options.html
       },
+      onListening: startNgrok,
     },
   };
 });

@@ -9,9 +9,6 @@ const _nav = [
     name: "Dashboard",
     to: "/dashboard",
     icon: <AppIcon name="cilSpeedometer" customClassName="nav-icon" />,
-    badge: {
-      color: "info",
-    },
   },
   {
     component: AppNavItem,

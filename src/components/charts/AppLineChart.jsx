@@ -60,11 +60,11 @@ export const AppLineChart = ({ data, options }) => {
         grid: {
           color: getStyle("--cui-border-color-translucent"),
         },
-        max: 250,
+        max: 140000,
         ticks: {
           color: getStyle("--cui-body-color"),
           maxTicksLimit: 5,
-          stepSize: Math.ceil(250 / 5),
+          stepSize: Math.ceil(150000 / 5),
         },
       },
     },
