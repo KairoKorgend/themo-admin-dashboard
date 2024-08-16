@@ -1,13 +1,19 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
+import { CDropdownDivider } from "@coreui/react";
+
 import {
   AppDropdown,
   AppDropdownItem,
   AppDropdownMenu,
   AppDropdownToggle,
 } from "src/components/navigation/index";
-import { AppIcon, AppAvatar } from "src/components/ui-elements/index";
+import {
+  AppIcon,
+  AppAvatar,
+  AppDropdownDivider,
+} from "src/components/ui-elements/index";
 
 import avatar from "src/assets/images/avatar.jpg";
 
@@ -36,6 +42,7 @@ export const AppHeaderDropdown = () => {
           <AppIcon name="cilSettings" className="me-2" />
           Settings
         </AppDropdownItem>
+        <AppDropdownDivider />
         <AppDropdownItem onClick={handleLogout}>
           <AppIcon name="cilLockLocked" className="me-2" />
           Log out

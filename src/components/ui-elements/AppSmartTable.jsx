@@ -5,6 +5,8 @@ import { CSmartTable } from "@coreui/react-pro";
 
 import { AppIcon } from "src/components/ui-elements/index";
 
+import "./AppSmartTable.scss";
+
 export const AppSmartTable = ({
   columns,
   devicesData,
@@ -30,7 +32,7 @@ export const AppSmartTable = ({
         selections: (item) => {
           return (
             <td className="py-2">
-              <div className="d-flex" style={{ gap: "10px" }}>
+              <div className="table-buttons">
                 <Link className="btn primary btn-sm">
                   <AppIcon
                     name="cilPencil"

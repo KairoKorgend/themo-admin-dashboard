@@ -12,7 +12,6 @@ import {
   cilBug,
   cilTrash,
   cilPencil,
-  cilMagnifyingGlass,
 } from "@coreui/icons";
 
 export {
@@ -29,5 +28,4 @@ export {
   cilBug,
   cilTrash,
   cilPencil,
-  cilMagnifyingGlass,
 };
