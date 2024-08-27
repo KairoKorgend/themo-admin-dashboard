@@ -16,5 +16,5 @@ export const AppDropdownDivider = ({ children, ...props }) => {
 
 AppDropdownDivider.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
 };

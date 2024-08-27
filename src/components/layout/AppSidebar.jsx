@@ -11,6 +11,7 @@ import { AppSidebarNav } from "src/components/navigation/AppSidebarNav";
 import { AppNavItem } from "src/components/navigation/AppNavItem.jsx";
 import { AppIcon } from "src/components/ui-elements/index";
 import logo from "src/assets/brand/logo.svg";
+import { set } from "src/features/ui/uiSlice";
 
 const navigation = [
   {
@@ -35,8 +36,8 @@ const navigation = [
 
 const AppSidebar = () => {
   const dispatch = useDispatch();
-  const unfoldable = useSelector((state) => state.sidebarUnfoldable);
-  const sidebarShow = useSelector((state) => state.sidebarShow);
+  const unfoldable = useSelector((state) => state.ui.unfoldable);
+  const sidebarShow = useSelector((state) => state.ui.sidebarShow);
 
   return (
     <CSidebar
@@ -46,13 +47,13 @@ const AppSidebar = () => {
       unfoldable={unfoldable}
       visible={sidebarShow}
       onVisibleChange={(visible) => {
-        dispatch({ type: "set", sidebarShow: visible });
+        dispatch(set({ sidebarShow: visible }));
       }}
     >
       <AppSidebarHeader>
         <img src={logo} alt="Logo" height={32} />
         <AppCloseButton
-          onClick={() => dispatch({ type: "set", sidebarShow: false })}
+          onClick={() => dispatch(set({ sidebarShow: false }))}
         />
       </AppSidebarHeader>
       <AppSidebarNav items={navigation} />

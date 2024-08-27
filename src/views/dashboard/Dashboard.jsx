@@ -1,4 +1,6 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { selectCurrentUser, selectCurrentToken } from "src/features/auth/authSlice";
 import { getStyle } from "@coreui/utils";
 
 import { AppCol, AppRow } from "src/components/layout/index";
@@ -15,6 +17,15 @@ import { AppIcon } from "src/components/ui-elements/index";
 import "./Dashboard.scss";
 
 const Dashboard = () => {
+  const user = useSelector(selectCurrentUser);
+  const token = useSelector(selectCurrentToken);
+
+  const Welcome = user ? `Welcome back, ${user}!` : "Welcome!";
+
+  const content = (
+      <h3>{Welcome}</h3>
+  );
+
   const chartData = {
     labels: ["January", "February", "March", "April", "May", "June", "July"],
     datasets: [
@@ -31,7 +42,7 @@ const Dashboard = () => {
 
   return (
     <>
-      <h3 className="content-header">Welcome back, Priit!</h3>
+      {content}
       <AppRow>
         <AppCol xs={12} lg={3}>
           <AppWidgetStatsF

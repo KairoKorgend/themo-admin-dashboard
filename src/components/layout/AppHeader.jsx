@@ -14,13 +14,14 @@ import {
   AppHeaderToggler,
 } from "src/components/navigation/index.js";
 import useAppColorMode from "src/hooks/useAppColorMode";
+import { set } from "src/features/ui/uiSlice";
 
 const AppHeader = () => {
   const headerRef = useRef();
   const { colorMode, setColorMode } = useAppColorMode();
 
   const dispatch = useDispatch();
-  const sidebarShow = useSelector((state) => state.sidebarShow);
+  const sidebarShow = useSelector((state) => state.ui.sidebarShow);
 
   useEffect(() => {
     document.addEventListener("scroll", () => {
@@ -36,7 +37,10 @@ const AppHeader = () => {
     <CHeader position="sticky" className="mb-4 p-0" ref={headerRef}>
       <AppContainer className="border-bottom px-4" fluid>
         <AppHeaderToggler
-          onClick={() => dispatch({ type: "set", sidebarShow: !sidebarShow })}
+          onClick={() => {
+            console.log("Toggler clicked");
+            dispatch(set({ sidebarShow: !sidebarShow }));
+          }}
         >
           <AppIcon name="cilMenu" size="lg" />
         </AppHeaderToggler>
