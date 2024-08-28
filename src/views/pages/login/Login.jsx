@@ -27,7 +27,7 @@ const Login = () => {
 
   const logoSrc =
     colorMode === "dark"
-      ? "src/assets/images/themo_logo_dark.svg"
+      ? "src/assets/images/themo_logo_light.png"
       : "src/assets/images/themo_logo_light.png";
 
   const userRef = useRef();
