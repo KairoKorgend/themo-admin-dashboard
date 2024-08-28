@@ -1,5 +1,6 @@
 import React from "react";
 import { useRef, useState, useEffect } from "react";
+import useAppColorMode from "src/hooks/useAppColorMode";
 import { useDispatch } from "react-redux";
 import { setCredentials } from "src/features/auth/authSlice";
 import { useLoginMutation } from "src/features/auth/authApiSlice";
@@ -22,6 +23,13 @@ import {
 } from "src/components/ui-elements/index";
 
 const Register = () => {
+  const { colorMode } = useAppColorMode();
+
+  const logoSrc =
+    colorMode === "dark"
+      ? "src/assets/images/themo_logo_light.png"
+      : "src/assets/images/themo_logo_light.png";
+
   const userRef = useRef(null);
   const errRef = useRef(null);
   const [user, setUser] = useState("");
@@ -115,13 +123,17 @@ const Register = () => {
   const handleLastNameInput = (e) => setLastName(e.target.value);
   const handleTermsAccepted = (e) => setTermsAccepted(e.target.checked);
 
+  const handleLoginClick = () => {
+    navigate("/login");
+  };
+
   const content = isLoading ? (
     <div className="d-flex justify-content-center">
       <AppSpinner />
     </div>
   ) : (
-    <section className={styles.login}>
-      <AppForm className={styles.loginForm} onSubmit={handleSubmit}>
+    <section className={styles.register}>
+      <AppForm className={styles.registerForm} onSubmit={handleSubmit}>
         <AppInputGroup className="mb-3">
           <AppInputGroupText>
             <AppIcon name="cilUser" />
@@ -208,7 +220,7 @@ const Register = () => {
             checked={termsAccepted}
             onChange={handleTermsAccepted}
           />
-          <label htmlFor="terms" className="ms-2">
+          <label htmlFor="terms" className="ms-2 text-body-secondary">
             I accept the terms and conditions
           </label>
         </div>
@@ -221,30 +233,33 @@ const Register = () => {
         </p>
         <AppRow className={styles.centerButton}>
           <AppCol xs={12}>
-            <AppButton color="dark" className={styles.loginBtn} type="submit">
+            <AppButton
+              color="dark"
+              className={styles.registerBtn}
+              type="submit"
+            >
               Sign Up
             </AppButton>
           </AppCol>
-          <AppCol xs={6} className="text-right">
-            <p className={`${styles.registerText} text-body-secondary`}>
-              Already have an account?
-            </p>
-          </AppCol>
         </AppRow>
+        <AppCol>
+          <p className={`${styles.alreadyHaveAccText} text-body-secondary`}>
+            Already have an account?{" "}
+            <span className={styles.link} onClick={handleLoginClick}>
+              Login
+            </span>
+          </p>
+        </AppCol>
       </AppForm>
     </section>
   );
 
   return (
     <div id={styles.lBg}>
-      <div className={styles.loginContainer}>
-        <AppCard className={styles.loginCard}>
-          <img
-            src="src/assets/images/themo_logo.png"
-            alt="Login Avatar"
-            className="mb-2"
-          />
-          <AppCardBody className={styles.loginForm}>{content}</AppCardBody>
+      <div className={styles.registerContainer}>
+        <AppCard className={styles.registerCard}>
+          <img src={logoSrc} alt="Register Avatar" className="mb-2" />
+          <AppCardBody className={styles.registerForm}>{content}</AppCardBody>
         </AppCard>
       </div>
     </div>

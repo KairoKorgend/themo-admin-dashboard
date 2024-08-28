@@ -1,121 +1,111 @@
-import React, { useState } from "react";
-import {
-  CButton,
-  CCard,
-  CCardBody,
-  CCol,
-  CContainer,
-  CForm,
-  CFormInput,
-  CInputGroup,
-  CInputGroupText,
-  CRow,
-} from "@coreui/react";
-import CIcon from "@coreui/icons-react";
-import { cilLockLocked, cilUser } from "@coreui/icons";
-import { useDispatch } from "react-redux";
+import React from "react";
+import { useRef, useState, useEffect } from "react";
+import useAppColorMode from "src/hooks/useAppColorMode";
 import { useNavigate } from "react-router-dom";
-import { useRegisterMutation } from "src/features/auth/authApiSlice";
-import { setCredentials } from "src/features/auth/authSlice";
+import styles from "./Forgot.module.scss";
 
-const Forgot = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+import { AppButton } from "src/components/ui-elements/index";
+import { AppIcon } from "src/components/ui-elements/index";
+import {
+  AppForm,
+  AppFormInput,
+  AppInputGroup,
+  AppInputGroupText,
+} from "src/components/forms/index";
+import { AppCol, AppRow } from "src/components/layout/index";
+import { AppCard, AppCardBody } from "src/components/ui-elements/index";
+
+const Login = () => {
+  const { colorMode } = useAppColorMode();
+
+  const logoSrc =
+    colorMode === "dark"
+      ? "src/assets/images/themo_logo_light.png"
+      : "src/assets/images/themo_logo_light.png";
+
+  const userRef = useRef();
+  const errRef = useRef();
+  const [user, setUser] = useState("");
   const [errMsg, setErrMsg] = useState("");
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const [register, { isLoading }] = useRegisterMutation();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (password !== confirmPassword) {
-      setErrMsg("Passwords do not match");
-      return;
-    }
+  useEffect(() => {
+    userRef.current.focus();
+  }, []);
 
-    try {
-      const userData = await register({
-        user: username,
-        pwd: password,
-      }).unwrap();
-      dispatch(setCredentials({ ...userData, user: username }));
-      setUsername("");
-      setPassword("");
-      setConfirmPassword("");
-      navigate("/");
-    } catch (err) {
-      if (!err?.response) {
-        setErrMsg("No Server Response");
-      } else if (err.response?.status === 400) {
-        setErrMsg("Missing Username or Password");
-      } else if (err.response?.status === 401) {
-        setErrMsg("Unauthorized");
-      } else {
-        setErrMsg("Registration Failed");
-      }
-    }
+  useEffect(() => {
+    setErrMsg("");
+  }, [user]);
+
+  const handleUserInput = (e) => setUser(e.target.value);
+
+  const handleBackTologinClick = () => {
+    navigate("/login");
   };
 
   return (
-    <div className="bg-body-tertiary min-vh-100 d-flex flex-row align-items-center">
-      <CContainer>
-        <CRow className="justify-content-center">
-          <CCol md={9} lg={7} xl={6}>
-            <CCard className="mx-4">
-              <CCardBody className="p-4">
-                <CForm onSubmit={handleSubmit}>
-                  <h1>Register</h1>
-                  <p className="text-body-secondary">Create your account</p>
-                  {errMsg && <p className="text-danger">{errMsg}</p>}
-                  <CInputGroup className="mb-3">
-                    <CInputGroupText>
-                      <CIcon icon={cilUser} />
-                    </CInputGroupText>
-                    <CFormInput
-                      placeholder="Username"
-                      autoComplete="username"
-                      value={username}
-                      onChange={(e) => setUsername(e.target.value)}
-                    />
-                  </CInputGroup>
-                  <CInputGroup className="mb-3">
-                    <CInputGroupText>
-                      <CIcon icon={cilLockLocked} />
-                    </CInputGroupText>
-                    <CFormInput
-                      type="password"
-                      placeholder="Password"
-                      autoComplete="new-password"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                    />
-                  </CInputGroup>
-                  <CInputGroup className="mb-4">
-                    <CInputGroupText>
-                      <CIcon icon={cilLockLocked} />
-                    </CInputGroupText>
-                    <CFormInput
-                      type="password"
-                      placeholder="Repeat password"
-                      autoComplete="new-password"
-                      value={confirmPassword}
-                      onChange={(e) => setConfirmPassword(e.target.value)}
-                    />
-                  </CInputGroup>
-                  <div className="d-grid">
-                    <CButton color="success" type="submit" disabled={isLoading}>
-                      {isLoading ? "Loading..." : "Create Account"}
-                    </CButton>
-                  </div>
-                </CForm>
-              </CCardBody>
-            </CCard>
-          </CCol>
-        </CRow>
-      </CContainer>
+    <div id={styles.lBg}>
+      <div className={styles.forgotPwdContainer}>
+        <AppCard className={styles.forgotPwdCard}>
+          <img src={logoSrc} alt="Login Avatar" className="mb-2" />
+          <AppCardBody>
+            <p className={styles.infoText}>
+              Enter your email and we'll send you a link to reset your password.
+            </p>
+            <section className={styles.forgotPwd}>
+              <AppForm className={styles.forgotPwdForm}>
+                <AppInputGroup className="mb-4">
+                  <AppInputGroupText>
+                    <AppIcon name="cilUser" />
+                  </AppInputGroupText>
+                  <AppFormInput
+                    type="text"
+                    id="username"
+                    ref={userRef}
+                    value={user}
+                    onChange={handleUserInput}
+                    placeholder="Email"
+                    autoComplete="off"
+                  />
+                </AppInputGroup>
+                <p
+                  ref={errRef}
+                  className={`${errMsg ? styles.errmsg : styles.offscreen}`}
+                  aria-live="assertive"
+                >
+                  {errMsg}
+                </p>
+                <AppRow className={styles.centerButton}>
+                  <AppCol xs={12}>
+                    <AppButton
+                      color="dark"
+                      className={styles.forgotBtn}
+                      type="submit"
+                    >
+                      Submit
+                    </AppButton>
+                  </AppCol>
+                  <AppCol>
+                    <p
+                      className={`${styles.backToLoginText} text-body-secondary`}
+                    >
+                      Back to{" "}
+                      <span
+                        className={styles.link}
+                        onClick={handleBackTologinClick}
+                      >
+                        login
+                      </span>
+                    </p>
+                  </AppCol>
+                </AppRow>
+              </AppForm>
+            </section>
+          </AppCardBody>
+        </AppCard>
+      </div>
     </div>
   );
 };
 
-export default Forgot;
+export default Login;

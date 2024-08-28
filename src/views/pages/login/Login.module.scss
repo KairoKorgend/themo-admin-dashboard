@@ -1,104 +1,10 @@
-#lBg {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
+@import "src/scss/sharedStyles.module.scss";
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("src/assets/images/login-bg.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.1;
-    z-index: 1;
-  }
-
-  .loginContainer {
-    position: relative;
-    z-index: 2;
-    background-color: var(--cui-bg-body-tertiary);
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 2rem;
-    margin-top: -50px;
-
-    .loginCard {
-      width: 100%;
-      max-width: 500px;
-      padding: 2rem; // Default padding
-      border-radius: 0.5rem;
-      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-      text-align: center;
-
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    img {
-      width: 200px;
-      border-radius: 50%;
-    }
-
-    .loginForm {
-      width: 100%;
-    }
-
-    .centerButton {
-      display: flex;
-      justify-content: center;
-    }
-  }
-}
-
-.registerContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 1rem;
-
-  .registerText {
-    margin-right: 4px; // Adjust the spacing as needed
-    margin-bottom: 1rem;
-  }
-
-  .signupBtn {
-    width: 100px;
-  }
+.forgotPwdText {
+  margin-top: 2rem;
+  font-size: 1rem;
 }
 
 .loginBtn {
-  width: 100px;
-}
-
-.forgotBtn {
-  margin-top: 0.5rem;
-  text-decoration: none;
-}
-
-.errmsg {
-  color: red;
-}
-
-.offscreen {
-  position: absolute;
-  left: -9999px;
-}
-
-@media (max-width: 576px) {
-  .loginContainer {
-    padding: 1rem;
-  }
+  width: 100%;
 }

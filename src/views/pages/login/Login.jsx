@@ -88,11 +88,11 @@ const Login = () => {
   const handleUserInput = (e) => setUser(e.target.value);
   const handlePwdInput = (e) => setPwd(e.target.value);
 
-  const handleSignUp = () => {
+  const handleSignUpClick = () => {
     navigate("/register");
   };
 
-  const handleForgot = () => {
+  const handleForgotClick = () => {
     navigate("/forgot-password");
   };
 
@@ -142,28 +142,23 @@ const Login = () => {
               Login
             </AppButton>
           </AppCol>
-          <AppCol xs={12}>
-            <AppButton
-              color="link"
-              className={styles.forgotBtn}
-              onClick={handleForgot}
-            >
-              Forgot password?
-            </AppButton>
-            <div className={styles.registerContainer}>
-              <p className={`${styles.registerText} text-body-secondary`}>
-                Don't have an account?
-              </p>
-              <AppButton
-                color="dark"
-                className={styles.signupBtn}
-                type="submit"
-              >
-                Sign up
-              </AppButton>
-            </div>
-          </AppCol>
         </AppRow>
+        <AppCol xs={12}>
+          <p className={`${styles.forgotPwdText} text-body-secondary`}>
+            Forgot{" "}
+            <span className={styles.link} onClick={handleForgotClick}>
+              Password?
+            </span>
+          </p>
+        </AppCol>
+        <AppCol>
+          <p className={`${styles.dontHaveAccText} text-body-secondary`}>
+            Don't have an account?{" "}
+            <span className={styles.link} onClick={handleSignUpClick}>
+              Sign up
+            </span>
+          </p>
+        </AppCol>
       </AppForm>
     </section>
   );
