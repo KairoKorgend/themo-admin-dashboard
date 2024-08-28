@@ -1,24 +1,25 @@
-import React, { useEffect, useRef } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useRef, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 import { CHeader } from "@coreui/react";
-
-import { AppContainer } from "src/components/layout/index.js";
-import { AppIcon } from "src/components/ui-elements/index";
 import {
-  AppDropdown,
-  AppDropdownItem,
-  AppDropdownMenu,
-  AppDropdownToggle,
-  AppHeaderDropdown,
-  AppHeaderNav,
   AppHeaderToggler,
+  AppHeaderNav,
+  AppDropdown,
+  AppDropdownToggle,
+  AppDropdownMenu,
+  AppDropdownItem,
+  AppHeaderDropdown,
 } from "src/components/navigation/index.js";
+import { AppContainer } from "src/components/layout/index.js";
+import { AppIcon } from "src/components/ui-elements/index.js";
 import useAppColorMode from "src/hooks/useAppColorMode";
 import { set } from "src/features/ui/uiSlice";
 
 const AppHeader = () => {
   const headerRef = useRef();
   const { colorMode, setColorMode } = useAppColorMode();
+  const { i18n, t } = useTranslation();
 
   const dispatch = useDispatch();
   const sidebarShow = useSelector((state) => state.ui.sidebarShow);
@@ -48,6 +49,37 @@ const AppHeader = () => {
           <li className="nav-item py-1">
             <div className="vr h-100 mx-2 text-body text-opacity-75"></div>
           </li>
+          <AppDropdown variant="nav-item" placement="bottom-end">
+            <AppDropdownToggle caret={false}>
+              <AppIcon name="cilLanguage" size="lg" />
+            </AppDropdownToggle>
+            <AppDropdownMenu>
+              <AppDropdownItem
+                active={i18n.language === "en"}
+                className="d-flex align-items-center"
+                as="button"
+                onClick={() => i18n.changeLanguage("en")}
+              >
+                <AppIcon className="me-2" name="cifGb" size="lg" /> English
+              </AppDropdownItem>
+              <AppDropdownItem
+                active={i18n.language === "ee"}
+                className="d-flex align-items-center"
+                as="button"
+                onClick={() => i18n.changeLanguage("ee")}
+              >
+                <AppIcon className="me-2" name="cifEe" size="lg" /> Estonian
+              </AppDropdownItem>
+              <AppDropdownItem
+                active={i18n.language === "fi"}
+                className="d-flex align-items-center"
+                as="button"
+                onClick={() => i18n.changeLanguage("fi")}
+              >
+                <AppIcon className="me-2" name="cifFi" size="lg" /> Finnish
+              </AppDropdownItem>
+            </AppDropdownMenu>
+          </AppDropdown>
           <AppDropdown variant="nav-item" placement="bottom-end">
             <AppDropdownToggle>
               {colorMode === "dark" ? (

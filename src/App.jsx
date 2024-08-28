@@ -52,7 +52,12 @@ const App = () => {
             name="Register Page"
             element={<Register />}
           />
-          <Route exact path="/forgot" name="Forgot Page" element={<Forgot />} />
+          <Route
+            exact
+            path="/forgot-password"
+            name="Forgot Page"
+            element={<Forgot />}
+          />
           <Route exact path="/404" name="Page 404" element={<Page404 />} />
           <Route exact path="/500" name="Page 500" element={<Page500 />} />
           <Route element={<RequireAuth />}>

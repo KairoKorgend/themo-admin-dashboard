@@ -14,6 +14,10 @@ import {
   cilPencil,
   cilPhone,
   cilEnvelopeClosed,
+  cilLanguage,
+  cifGb,
+  cifEe,
+  cifFi,
 } from "@coreui/icons";
 
 export {
@@ -32,4 +36,8 @@ export {
   cilPencil,
   cilPhone,
   cilEnvelopeClosed,
+  cilLanguage,
+  cifGb,
+  cifEe,
+  cifFi,
 };

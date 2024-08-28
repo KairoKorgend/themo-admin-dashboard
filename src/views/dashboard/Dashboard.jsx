@@ -1,7 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { selectCurrentUser, selectCurrentToken } from "src/features/auth/authSlice";
+import { selectCurrentUser } from "src/features/auth/authSlice";
 import { getStyle } from "@coreui/utils";
+import { useTranslation } from "react-i18next";
 
 import { AppCol, AppRow } from "src/components/layout/index";
 import {
@@ -17,20 +18,26 @@ import { AppIcon } from "src/components/ui-elements/index";
 import "./Dashboard.scss";
 
 const Dashboard = () => {
+  const { t } = useTranslation();
   const user = useSelector(selectCurrentUser);
-  const token = useSelector(selectCurrentToken);
 
-  const Welcome = user ? `Welcome back, ${user}!` : "Welcome!";
+  const Welcome = user ? t("welcome_back", { user }) : t("welcome");
 
-  const content = (
-      <h3>{Welcome}</h3>
-  );
+  const content = <h3>{Welcome}</h3>;
 
   const chartData = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    labels: [
+      t("january"),
+      t("february"),
+      t("march"),
+      t("april"),
+      t("may"),
+      t("june"),
+      t("july"),
+    ],
     datasets: [
       {
-        label: "Total users",
+        label: t("total_users"),
         backgroundColor: "transparent",
         borderColor: getStyle("--cui-success"),
         pointHoverBackgroundColor: getStyle("--cui-success"),
@@ -48,7 +55,7 @@ const Dashboard = () => {
           <AppWidgetStatsF
             color="success"
             icon={<AppIcon name="cilDevices" height={24} />}
-            title="Devices Online"
+            title={t("devices_online")}
             value="48 651"
           />
         </AppCol>
@@ -56,7 +63,7 @@ const Dashboard = () => {
           <AppWidgetStatsF
             color="secondary"
             icon={<AppIcon name="cilDevices" height={24} />}
-            title="Devices Offline"
+            title={t("devices_offline")}
             value="27 487"
           />
         </AppCol>
@@ -64,7 +71,7 @@ const Dashboard = () => {
           <AppWidgetStatsF
             color="info"
             icon={<AppIcon name="cilPeople" height={24} />}
-            title="Total Clients"
+            title={t("total_clients")}
             value="117 358"
           />
         </AppCol>
@@ -72,7 +79,7 @@ const Dashboard = () => {
           <AppWidgetStatsF
             color="danger"
             icon={<AppIcon name="cilBug" height={24} />}
-            title="Total Errors"
+            title={t("total_errors")}
             value="8"
           />
         </AppCol>
@@ -81,9 +88,13 @@ const Dashboard = () => {
         <AppCardBody>
           <AppRow>
             <AppCol sm={5}>
-              <h4 className="card-title mb-0">Total Users</h4>
+              <h4 className="card-title mb-0">{t("total_users")}</h4>
               <div className="small text-body-secondary">
-                January - July 2023
+                {t("date_range", {
+                  start: t("january"),
+                  end: t("july"),
+                  year: 2024,
+                })}
               </div>
             </AppCol>
             <AppCol sm={7} className="d-none d-md-block">
@@ -95,7 +106,7 @@ const Dashboard = () => {
                     className="mx-0"
                     active={value === "Month"}
                   >
-                    {value}
+                    {t(value.toLowerCase())}
                   </AppButton>
                 ))}
               </AppButtonGroup>

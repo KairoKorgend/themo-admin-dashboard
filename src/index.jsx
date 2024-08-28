@@ -5,7 +5,7 @@ import "core-js";
 
 import { store } from "./app/store";
 import { Provider } from "react-redux";
-
+import "./i18n";
 
 createRoot(document.getElementById("root")).render(
   <Provider store={store}>

@@ -1,5 +1,6 @@
 import React from "react";
 import { useRef, useState, useEffect } from "react";
+import useAppColorMode from "src/hooks/useAppColorMode";
 import { useDispatch } from "react-redux";
 import { setCredentials } from "src/features/auth/authSlice";
 import { useLoginMutation } from "src/features/auth/authApiSlice";
@@ -22,6 +23,13 @@ import {
 } from "src/components/ui-elements/index";
 
 const Login = () => {
+  const { colorMode } = useAppColorMode();
+
+  const logoSrc =
+    colorMode === "dark"
+      ? "src/assets/images/themo_logo_dark.svg"
+      : "src/assets/images/themo_logo_light.png";
+
   const userRef = useRef();
   const errRef = useRef();
   const [user, setUser] = useState("");
@@ -80,6 +88,14 @@ const Login = () => {
   const handleUserInput = (e) => setUser(e.target.value);
   const handlePwdInput = (e) => setPwd(e.target.value);
 
+  const handleSignUp = () => {
+    navigate("/register");
+  };
+
+  const handleForgot = () => {
+    navigate("/forgot-password");
+  };
+
   const content = isLoading ? (
     <div className="d-flex justify-content-center">
       <AppSpinner />
@@ -97,7 +113,7 @@ const Login = () => {
             ref={userRef}
             value={user}
             onChange={handleUserInput}
-            placeholder="Username"
+            placeholder="Email"
             autoComplete="off"
           />
         </AppInputGroup>
@@ -126,16 +142,26 @@ const Login = () => {
               Login
             </AppButton>
           </AppCol>
-          <AppCol xs={6} className="text-right">
-            <AppButton color="link" className={`${styles.forgotPwBtn} px-0`}>
+          <AppCol xs={12}>
+            <AppButton
+              color="link"
+              className={styles.forgotBtn}
+              onClick={handleForgot}
+            >
               Forgot password?
             </AppButton>
-            <p className={`${styles.registerText} text-body-secondary`}>
-              Don't have an account?
-            </p>
-            <AppButton color="dark" className={styles.signupBtn}>
-              Sign Up
-            </AppButton>
+            <div className={styles.registerContainer}>
+              <p className={`${styles.registerText} text-body-secondary`}>
+                Don't have an account?
+              </p>
+              <AppButton
+                color="dark"
+                className={styles.signupBtn}
+                type="submit"
+              >
+                Sign up
+              </AppButton>
+            </div>
           </AppCol>
         </AppRow>
       </AppForm>
@@ -146,11 +172,7 @@ const Login = () => {
     <div id={styles.lBg}>
       <div className={styles.loginContainer}>
         <AppCard className={styles.loginCard}>
-          <img
-            src="src/assets/images/themo_logo.png"
-            alt="Login Avatar"
-            className="mb-2"
-          />
+          <img src={logoSrc} alt="Login Avatar" className="mb-2" />
           <AppCardBody className={styles.loginForm}>{content}</AppCardBody>
         </AppCard>
       </div>

@@ -1,0 +1,36 @@
+{
+  "year": "year",
+  "month": "month",
+  "day": "day",
+
+  "monday": "Monday",
+  "tuesday": "Tuesday",
+  "wednesday": "Wednesday",
+  "thursday": "Thursday",
+  "friday": "Friday",
+  "saturday": "Saturday",
+  "sunday": "Sunday",
+
+  "january": "January",
+  "february": "February",
+  "march": "March",
+  "april": "April",
+  "may": "May",
+  "june": "June",
+  "july": "July",
+  "august": "August",
+  "september": "September",
+  "october": "October",
+  "november": "November",
+  "december": "December",
+  "date_range": "{{start}} - {{end}} {{year}}",
+
+  "welcome": "Welcome",
+  "welcome_back": "Welcome back, {{user}}!",
+
+  "devices_online": "Devices online",
+  "devices_offline": "Devices offline",
+  "total_clients": "Total clients",
+  "total_errors": "Total errors",
+  "total_users": "Total users"
+}

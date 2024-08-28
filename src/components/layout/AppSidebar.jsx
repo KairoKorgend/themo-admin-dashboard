@@ -36,7 +36,6 @@ const navigation = [
 
 const AppSidebar = () => {
   const dispatch = useDispatch();
-  const unfoldable = useSelector((state) => state.ui.unfoldable);
   const sidebarShow = useSelector((state) => state.ui.sidebarShow);
 
   return (
@@ -44,7 +43,6 @@ const AppSidebar = () => {
       className="border-end"
       colorScheme="dark"
       position="fixed"
-      unfoldable={unfoldable}
       visible={sidebarShow}
       onVisibleChange={(visible) => {
         dispatch(set({ sidebarShow: visible }));
@@ -52,9 +50,7 @@ const AppSidebar = () => {
     >
       <AppSidebarHeader>
         <img src={logo} alt="Logo" height={32} />
-        <AppCloseButton
-          onClick={() => dispatch(set({ sidebarShow: false }))}
-        />
+        <AppCloseButton onClick={() => dispatch(set({ sidebarShow: false }))} />
       </AppSidebarHeader>
       <AppSidebarNav items={navigation} />
       <AppSidebarFooter></AppSidebarFooter>

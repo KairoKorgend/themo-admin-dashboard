@@ -1,0 +1,36 @@
+{
+  "year": "aasta",
+  "month": "kuu",
+  "day": "päev",
+
+  "monday": "Esmaspäev",
+  "tuesday": "Teisipäev",
+  "wednesday": "Kolmapäev",
+  "thursday": "Neljapäev",
+  "friday": "Reede",
+  "saturday": "Laupäev",
+  "sunday": "Pühapäev",
+
+  "january": "Jaanuar",
+  "february": "Veebruar",
+  "march": "Märts",
+  "april": "Aprill",
+  "may": "Mai",
+  "june": "Juuni",
+  "july": "Juuli",
+  "august": "August",
+  "september": "September",
+  "october": "Oktoober",
+  "november": "November",
+  "december": "Detsember",
+  "date_range": "{{start}} - {{end}} {{year}}",
+
+  "welcome": "Tere tulemast",
+  "welcome_back": "Tere tulemast tagasi, {{user}}!",
+
+  "devices_online": "Seadmed võrgus",
+  "devices_offline": "Seadmed võrguühenduseta",
+  "total_clients": "Kokku kliente",
+  "total_errors": "Kokku vigu",
+  "total_users": "Kokku kasutajaid"
+}
