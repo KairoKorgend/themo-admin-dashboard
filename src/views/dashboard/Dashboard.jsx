@@ -15,7 +15,7 @@ import {
 import { AppLineChart } from "src/components/charts/index";
 import { AppIcon } from "src/components/ui-elements/index";
 
-import "./Dashboard.scss";
+import styles from "./Dashboard.module.scss";
 
 const Dashboard = () => {
   const { t } = useTranslation();
@@ -23,7 +23,7 @@ const Dashboard = () => {
 
   const Welcome = user ? t("welcome_back", { user }) : t("welcome");
 
-  const content = <h3>{Welcome}</h3>;
+  const content = <h3 className={styles.headerText}>{Welcome}</h3>;
 
   const chartData = {
     labels: [
