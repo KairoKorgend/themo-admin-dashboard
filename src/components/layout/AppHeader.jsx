@@ -19,19 +19,25 @@ import { set } from "src/features/ui/uiSlice";
 const AppHeader = () => {
   const headerRef = useRef();
   const { colorMode, setColorMode } = useAppColorMode();
-  const { i18n, t } = useTranslation();
+  const { i18n } = useTranslation();
 
   const dispatch = useDispatch();
   const sidebarShow = useSelector((state) => state.ui.sidebarShow);
 
   useEffect(() => {
-    document.addEventListener("scroll", () => {
-      headerRef.current &&
+    const handleScroll = () => {
+      if (headerRef.current) {
         headerRef.current.classList.toggle(
           "shadow-sm",
           document.documentElement.scrollTop > 0
         );
-    });
+      }
+    };
+
+    document.addEventListener("scroll", handleScroll);
+    return () => {
+      document.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
@@ -39,7 +45,6 @@ const AppHeader = () => {
       <AppContainer className="border-bottom px-4" fluid>
         <AppHeaderToggler
           onClick={() => {
-            console.log("Toggler clicked");
             dispatch(set({ sidebarShow: !sidebarShow }));
           }}
         >

@@ -1,17 +1,21 @@
+import { useEffect } from "react";
 import { useColorModes } from "@coreui/react";
 
-/**
- * Custom hook for managing color modes in the application.
- * Provides an abstraction over the CoreUI useColorModes hook.
- *
- * @returns {Object} Contains the current colorMode and a setColorMode function.
- */
-
 const useAppColorMode = () => {
-  // Use the CoreUI useColorModes hook with a default theme key.
-  const { colorMode, setColorMode } = useColorModes(
-    "coreui-free-react-admin-template-theme"
-  );
+  const { colorMode, setColorMode } = useColorModes("color-mode");
+
+  useEffect(() => {
+    const body = document.body;
+    body.classList.remove("light-mode", "dark-mode", "auto-mode");
+
+    if (colorMode === "dark") {
+      body.classList.add("dark-mode");
+    } else if (colorMode === "light") {
+      body.classList.add("light-mode");
+    } else {
+      body.classList.add("auto-mode");
+    }
+  }, [colorMode]);
 
   return { colorMode, setColorMode };
 };

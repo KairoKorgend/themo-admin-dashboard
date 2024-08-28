@@ -1,9 +1,12 @@
+@import "../node_modules/@coreui/coreui/scss/functions";
+
 @import "variables";
 @import "variables-dark";
 
 // Import CoreUI styles
 @import "@coreui/coreui/scss/coreui";
 @import "@coreui/chartjs/scss/coreui-chartjs";
+@import "@coreui/coreui/scss/mixins/";
 
 // Custom styles for this theme
 @import "theme";
