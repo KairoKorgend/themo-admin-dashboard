@@ -1,5 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { logOut } from "src/features/auth/authSlice.js";
 
 import { CDropdownDivider } from "@coreui/react";
 
@@ -19,8 +21,10 @@ import avatar from "src/assets/images/avatar.jpg";
 
 export const AppHeaderDropdown = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleLogout = () => {
+    dispatch(logOut());
     navigate("/login");
   };
 

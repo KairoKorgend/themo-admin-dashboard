@@ -12,6 +12,8 @@ import {
   cilBug,
   cilTrash,
   cilPencil,
+  cilPhone,
+  cilEnvelopeClosed,
 } from "@coreui/icons";
 
 export {
@@ -28,4 +30,6 @@ export {
   cilBug,
   cilTrash,
   cilPencil,
+  cilPhone,
+  cilEnvelopeClosed,
 };

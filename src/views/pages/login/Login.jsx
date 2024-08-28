@@ -4,19 +4,22 @@ import { useDispatch } from "react-redux";
 import { setCredentials } from "src/features/auth/authSlice";
 import { useLoginMutation } from "src/features/auth/authApiSlice";
 import { useNavigate } from "react-router-dom";
-import { CSpinner } from "@coreui/react";
 import styles from "./Login.module.scss";
 
+import { AppButton } from "src/components/ui-elements/index";
+import { AppIcon } from "src/components/ui-elements/index";
 import {
   AppForm,
   AppFormInput,
   AppInputGroup,
   AppInputGroupText,
 } from "src/components/forms/index";
-import { AppCol, AppRow, AppContainer } from "src/components/layout/index";
-import { AppCard, AppCardBody } from "src/components/ui-elements/index";
-import { AppButton } from "src/components/ui-elements/index";
-import { AppIcon } from "src/components/ui-elements/index";
+import { AppCol, AppRow } from "src/components/layout/index";
+import {
+  AppCard,
+  AppCardBody,
+  AppSpinner,
+} from "src/components/ui-elements/index";
 
 const Login = () => {
   const userRef = useRef();
@@ -79,7 +82,7 @@ const Login = () => {
 
   const content = isLoading ? (
     <div className="d-flex justify-content-center">
-      <CSpinner />
+      <AppSpinner />
     </div>
   ) : (
     <section className={styles.login}>

@@ -8,3 +8,4 @@ export { AppDropdownDivider } from "./AppDropdownDivider.jsx";
 export { AppIcon } from "./AppIcon.jsx";
 export { AppSmartTable } from "./AppSmartTable.jsx";
 export { AppWidgetStatsF } from "./AppWidgetStatsF.jsx";
+export { AppSpinner } from "./AppSpinner.jsx";

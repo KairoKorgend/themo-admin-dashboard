@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 
-import AppSpinner from "src/components/ui-elements/AppSpinner.jsx";
+import { AppSpinner } from "src/components/ui-elements/index";
 import { AppContainer } from "src/components/layout/index";
 
 const Dashboard = React.lazy(() => import("src/views/dashboard/Dashboard.jsx"));
