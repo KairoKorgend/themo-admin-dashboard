@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { CSidebar } from "@coreui/react";
+import useAppColorMode from "src/hooks/useAppColorMode"; // Adjust the import path as necessary
+
+import "./styles/AppSidebar.scss";
 
 import {
   AppSidebarHeader,
   AppSidebarFooter,
-} from "src/components/layout/index";
-import { AppCloseButton } from "src/components/ui-elements/index";
-import { AppSidebarNav } from "src/components/navigation/AppSidebarNav";
-import { AppNavItem } from "src/components/navigation/AppNavItem.jsx";
-import { AppIcon } from "src/components/ui-elements/index";
-import logo from "src/assets/brand/logo.svg";
+  AppCloseButton,
+  AppSidebarNav,
+  AppNavItem,
+  AppIcon,
+} from "src/components/index";
 import { set } from "src/features/ui/uiSlice";
 
 const navigation = [
@@ -37,11 +39,17 @@ const navigation = [
 const AppSidebar = () => {
   const dispatch = useDispatch();
   const sidebarShow = useSelector((state) => state.ui.sidebarShow);
+  const { colorMode } = useAppColorMode(); // Use the custom hook to get the current color mode
+
+  useEffect(() => {
+    const body = document.body;
+    body.setAttribute("data-coreui-theme", colorMode);
+  }, [colorMode]);
 
   return (
     <CSidebar
       className="border-end"
-      colorScheme="dark"
+      colorScheme="light"
       position="fixed"
       visible={sidebarShow}
       onVisibleChange={(visible) => {
@@ -49,7 +57,15 @@ const AppSidebar = () => {
       }}
     >
       <AppSidebarHeader>
-        <img src={logo} alt="Logo" height={32} />
+        <div
+          className="sidebar-logo"
+          style={{
+            height: 32,
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+            backgroundImage: "var(--logo-light)",
+          }}
+        ></div>
         <AppCloseButton onClick={() => dispatch(set({ sidebarShow: false }))} />
       </AppSidebarHeader>
       <AppSidebarNav items={navigation} />

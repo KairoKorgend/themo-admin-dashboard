@@ -1,0 +1,56 @@
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  @media (max-width: 768px) {
+    padding-top: 5px;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.headerButtons {
+  display: flex;
+
+  @media (max-width: 768px) {
+    margin-top: 20px;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+.headerText {
+  font-size: 26px;
+}
+
+.navItem {
+  background-color: white;
+  border-color: rgb(204, 204, 204);
+  color: black;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.navItem:hover {
+  color: #f0f0f0;
+}
+
+.addDeviceBtn {
+  color: white;
+  margin-right: 10px;
+
+  @media (max-width: 768px) {
+    margin-right: 0px;
+    width: 100%;
+  }
+}
+
+.addDeviceBtn:hover {
+  color: #f0f0f0;
+}

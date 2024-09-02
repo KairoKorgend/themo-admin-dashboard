@@ -4,9 +4,9 @@ import SimpleBar from "simplebar-react";
 import "simplebar-react/dist/simplebar.min.css";
 import { CSidebarNav } from "@coreui/react";
 
-import { AppNavLink } from "src/components/navigation/index";
+import { AppNavLink } from "src/components/index";
 
-export const AppSidebarNav = ({ items }) => {
+const AppSidebarNav = ({ items }) => {
   const navLink = (name, icon, indent = false) => {
     return (
       <>
@@ -59,3 +59,5 @@ export const AppSidebarNav = ({ items }) => {
 AppSidebarNav.propTypes = {
   items: PropTypes.arrayOf(PropTypes.any).isRequired,
 };
+
+export default AppSidebarNav;

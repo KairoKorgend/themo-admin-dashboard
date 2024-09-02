@@ -1,0 +1,83 @@
+@import "src/scss/variables.scss";
+
+// light mode styling
+[data-coreui-theme="light"] {
+  .table > :not(caption) > * > * {
+    color: var(--cui-table-text-color);
+    border-bottom-width: 2px;
+    border-color: var(--cui-table-border-bg);
+  }
+
+  .table th {
+    background-color: var(--cui-table-header-bg);
+    border: none;
+  }
+
+  .table-striped > tbody > tr:nth-of-type(odd) > * {
+    --cui-table-bg-type: var(--cui-table-odd-bg);
+  }
+
+  .table-striped > tbody > tr:nth-of-type(even) > * {
+    --cui-table-bg-type: var(--cui-table-even-bg);
+  }
+}
+
+// dark mode styling
+[data-coreui-theme="dark"] {
+  .table > :not(caption) > * > * {
+    color: var(--cui-table-text-color);
+    border-bottom-width: 2px;
+    border-color: var(--cui-table-border-bg);
+  }
+
+  .table th {
+    background-color: var(--cui-table-header-bg);
+    border: none;
+  }
+
+  .table-striped > tbody > tr:nth-of-type(odd) > * {
+    --cui-table-bg-type: var(--cui-table-odd-bg);
+  }
+
+  .table-striped > tbody > tr:nth-of-type(even) > * {
+    --cui-table-bg-type: var(--cui-table-even-bg);
+  }
+}
+
+// custom styling
+.table {
+  font-size: 15px !important;
+}
+
+.buttons {
+  display: flex;
+}
+
+.table-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+  //   border: black;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+.headerText {
+  font-size: 26px;
+}
+
+.headerButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}

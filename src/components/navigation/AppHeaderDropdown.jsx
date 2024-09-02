@@ -3,29 +3,32 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logOut } from "src/features/auth/authSlice.js";
 
-import { CDropdownDivider } from "@coreui/react";
-
 import {
   AppDropdown,
   AppDropdownItem,
   AppDropdownMenu,
   AppDropdownToggle,
-} from "src/components/navigation/index";
-import {
   AppIcon,
   AppAvatar,
   AppDropdownDivider,
-} from "src/components/ui-elements/index";
+} from "src/components/index";
 
 import avatar from "src/assets/images/avatar.jpg";
-
-export const AppHeaderDropdown = () => {
+const AppHeaderDropdown = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleLogout = () => {
     dispatch(logOut());
     navigate("/login");
+  };
+
+  const handleAccountClick = () => {
+    navigate("/account");
+  };
+
+  const handleSettingsClick = () => {
+    navigate("/settings");
   };
 
   return (
@@ -38,20 +41,22 @@ export const AppHeaderDropdown = () => {
         <AppAvatar src={avatar} size="md" />
       </AppDropdownToggle>
       <AppDropdownMenu className="pt-2" placement="bottom-end">
-        <AppDropdownItem href="#">
+        <AppDropdownItem onClick={handleAccountClick}>
           <AppIcon name="cilUser" className="me-2" />
-          Profile
+          Account
         </AppDropdownItem>
-        <AppDropdownItem href="#">
+        <AppDropdownItem onClick={handleSettingsClick}>
           <AppIcon name="cilSettings" className="me-2" />
           Settings
         </AppDropdownItem>
         <AppDropdownDivider />
         <AppDropdownItem onClick={handleLogout}>
-          <AppIcon name="cilLockLocked" className="me-2" />
+          <AppIcon name="cilAccountLogout" className="me-2" />
           Log out
         </AppDropdownItem>
       </AppDropdownMenu>
     </AppDropdown>
   );
 };
+
+export default AppHeaderDropdown;

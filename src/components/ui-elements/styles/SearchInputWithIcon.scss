@@ -1,0 +1,42 @@
+@import "src/scss/variables.scss";
+
+// light mode styling
+[data-coreui-theme="light"] {
+  .searchContainer input {
+    background-color: var(--cui-search-bg);
+  }
+}
+
+// dark mode styling
+[data-coreui-theme="dark"] {
+  .searchContainer input {
+    background-color: var(--cui-search-bg);
+  }
+}
+
+.searchContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.searchContainer input {
+  width: 20rem;
+  height: 2.2rem;
+  border: none;
+  border-radius: 16px;
+  padding-left: 2.3rem;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .searchContainer input {
+    width: 15rem;
+  }
+}

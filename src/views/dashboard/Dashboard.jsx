@@ -4,16 +4,17 @@ import { selectCurrentUser } from "src/features/auth/authSlice";
 import { getStyle } from "@coreui/utils";
 import { useTranslation } from "react-i18next";
 
-import { AppCol, AppRow } from "src/components/layout/index";
 import {
+  AppCol,
+  AppRow,
   AppWidgetStatsF,
   AppCard,
   AppCardBody,
   AppButton,
   AppButtonGroup,
-} from "src/components/ui-elements/index";
-import { AppLineChart } from "src/components/charts/index";
-import { AppIcon } from "src/components/ui-elements/index";
+  AppLineChart,
+  AppIcon,
+} from "src/components/index";
 
 import styles from "./Dashboard.module.scss";
 

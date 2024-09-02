@@ -4,16 +4,18 @@ import useAppColorMode from "src/hooks/useAppColorMode";
 import { useNavigate } from "react-router-dom";
 import styles from "./Forgot.module.scss";
 
-import { AppButton } from "src/components/ui-elements/index";
-import { AppIcon } from "src/components/ui-elements/index";
 import {
   AppForm,
   AppFormInput,
   AppInputGroup,
   AppInputGroupText,
-} from "src/components/forms/index";
-import { AppCol, AppRow } from "src/components/layout/index";
-import { AppCard, AppCardBody } from "src/components/ui-elements/index";
+  AppButton,
+  AppCard,
+  AppCardBody,
+  AppIcon,
+  AppCol,
+  AppRow,
+} from "src/components/index";
 
 const Login = () => {
   const { colorMode } = useAppColorMode();
@@ -28,6 +30,10 @@ const Login = () => {
   const [user, setUser] = useState("");
   const [errMsg, setErrMsg] = useState("");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = "Themo | Forgot Password";
+  }, []);
 
   useEffect(() => {
     userRef.current.focus();
@@ -78,7 +84,7 @@ const Login = () => {
                 <AppRow className={styles.centerButton}>
                   <AppCol xs={12}>
                     <AppButton
-                      color="dark"
+                      color="primary"
                       className={styles.forgotBtn}
                       type="submit"
                     >

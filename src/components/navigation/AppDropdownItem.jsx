@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { CDropdownItem } from "@coreui/react";
 
-export const AppDropdownItem = ({
+const AppDropdownItem = ({
   children,
   className = "d-flex align-items-center",
   as = "button",
@@ -20,3 +20,5 @@ AppDropdownItem.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
 };
+
+export default AppDropdownItem;

@@ -4,95 +4,129 @@ import {
   CSmartTable,
   CCard,
   CCardBody,
-  CRow,
-  CCol,
-  CCardTitle,
-  CCardSubtitle,
+  CModal,
+  CModalHeader,
+  CModalTitle,
+  CModalBody,
+  CModalFooter,
+  CButton,
 } from "@coreui/react-pro";
+import { AppIcon, AppButton, SearchInputWithIcon } from "src/components/index";
+import "./styles/AppSmartTable.scss";
 
-import { AppIcon, AppButton } from "src/components/ui-elements/index";
-
-import styles from "./styles/AppSmartTable.module.scss";
-
-export const AppSmartTable = ({
+const AppSmartTable = ({
   itemsPerPage = 5,
   sorterValue = { column: "status", state: "asc" },
-  noItemsLabel = "No devices found",
+  noItemsLabel = "No devices found. Please add a new device",
   ...rest
 }) => {
   const [selectedItems, setSelectedItems] = useState([]);
-
-  const initialDevices = [
+  const [searchTerm, setSearchTerm] = useState("");
+  const [devices, setDevices] = useState([
     {
       Id: 1,
-      deviceName: "Device 1",
+      name: "Device 1",
       info: "Info 1",
       client: "Client 1",
-      deviceType: "Type 1",
+      type: "Type 1",
       power: "100W",
       timeStamp: "2023-10-01T10:00:00Z",
     },
     {
       Id: 2,
-      deviceName: "Device 2",
+      name: "Device 2",
       info: "Info 2",
       client: "Client 2",
-      deviceType: "Type 2",
+      type: "Type 2",
       power: "200W",
       timeStamp: "2023-10-02T11:00:00Z",
     },
     {
       Id: 3,
-      deviceName: "Device 1",
+      name: "Device 3",
+      info: "Info 3",
+      client: "Client 3",
+      type: "Type 3",
+      power: "300W",
+      timeStamp: "2023-10-03T12:00:00Z",
+    },
+    {
+      Id: 4,
+      name: "Device 4",
+      info: "Info 4",
+      client: "Client 4",
+      type: "Type 4",
+      power: "400W",
+      timeStamp: "2023-10-04T13:00:00Z",
+    },
+    {
+      Id: 1,
+      name: "Device 1",
       info: "Info 1",
       client: "Client 1",
-      deviceType: "Type 1",
+      type: "Type 1",
       power: "100W",
       timeStamp: "2023-10-01T10:00:00Z",
     },
     {
-      Id: 4,
-      deviceName: "Device 4",
+      Id: 2,
+      name: "Device 2",
       info: "Info 2",
       client: "Client 2",
-      deviceType: "Type 2",
+      type: "Type 2",
       power: "200W",
       timeStamp: "2023-10-02T11:00:00Z",
     },
-  ];
+    {
+      Id: 3,
+      name: "Device 3",
+      info: "Info 3",
+      client: "Client 3",
+      type: "Type 3",
+      power: "300W",
+      timeStamp: "2023-10-03T12:00:00Z",
+    },
+    {
+      Id: 4,
+      name: "Device 4",
+      info: "Info 4",
+      client: "Kairo",
+      type: "Type 4",
+      power: "400W",
+      timeStamp: "2023-10-04T13:00:00Z",
+    },
+  ]);
 
-  const handleExport = () => {
-    const selectedData = initialDevices.filter((device) =>
-      selectedItems.includes(device.Id)
-    );
-    console.log("Exporting data:", selectedData);
-  };
-
-  const deleteDevice = (id) => {
-    console.log(`Deleting device with ID: ${id}`);
-  };
+  const filteredDevices = devices.filter((device) =>
+    ["name", "info", "client", "type", "power", "timeStamp"].some((key) =>
+      device[key].toLowerCase().includes(searchTerm.toLowerCase())
+    )
+  );
 
   const columns = [
     {
-      key: "deviceName",
-      _style: { width: "15%" },
+      key: "name",
+      _style: { width: "16,6%" },
     },
-    "info",
+    {
+      key: "info",
+      _style: { width: "16,6%" },
+    },
     {
       key: "client",
-      _style: { width: "15%" },
+      _style: { width: "16,6%" },
     },
     {
-      key: "deviceType",
-      _style: { width: "15%" },
+      key: "type",
+      _style: { width: "16,6%" },
     },
     {
       key: "power",
-      _style: { width: "10%" },
+      _style: { width: "16,6%" },
     },
     {
       key: "timeStamp",
-      _style: { width: "20%" },
+      _style: { width: "16,6%" },
     },
     {
       key: "selections",
@@ -103,55 +137,69 @@ export const AppSmartTable = ({
     },
   ];
 
+  const [modalVisible, setModalVisible] = useState(false);
+  const [deviceToDelete, setDeviceToDelete] = useState(null);
+
+  const deleteDevice = (id) => {
+    setDevices((prevDevices) =>
+      prevDevices.filter((device) => device.Id !== id)
+    );
+  };
+
+  const deleteSelectedDevices = () => {
+    setDevices((prevDevices) =>
+      prevDevices.filter((device) => !selectedItems.includes(device.Id))
+    );
+    setSelectedItems([]);
+  };
+
+  const confirmDelete = (id) => {
+    setDeviceToDelete(id);
+    setModalVisible(true);
+  };
+
+  const handleConfirmDelete = () => {
+    deleteDevice(deviceToDelete);
+    setModalVisible(false);
+    setDeviceToDelete(null);
+  };
+
   return (
     <CCard className="mb-4">
       <CCardBody className="p-4">
-        <CRow>
-          <div className={styles.header}>
-            <CCardTitle className={styles.headerText}>
-              Device Management
-            </CCardTitle>
-            <CCardSubtitle className="fw-normal text-body-secondary mb-4">
-              Total Devices: {initialDevices.length}
-            </CCardSubtitle>
-          </div>
-        </CRow>
-        <CCol xs="auto" className="ms-auto">
-          <div className={styles.headerButtons}>
-            <AppButton className={styles.deleteSelectedBtn}>
-              <AppIcon name="cilTrash" className="me-2" />
-              {"Delete Selected"}
-            </AppButton>
-            <AppButton className={styles.exportSelectedBtn}>
-              <AppIcon name="cilArrowThickToBottom" className="me-2" />
-              {"Export Selected"}
-            </AppButton>
-            <AppButton className={styles.addDeviceBtn}>
-              <AppIcon name="cilPlus" className="me-2" />
-              {"Add Device"}
-            </AppButton>
-          </div>
-        </CCol>
+        <div className="table-header">
+          <SearchInputWithIcon
+            placeholder="Search"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <AppButton onClick={deleteSelectedDevices} color="danger">
+            <AppIcon name="cilTrash" className="me-2" />
+            {`Delete (${selectedItems.length})`}
+          </AppButton>
+        </div>
         <CSmartTable
           activePage={1}
           columns={columns}
-          columnFilter
           columnSorter
           pagination
           noItemsLabel={noItemsLabel}
-          items={initialDevices}
+          items={filteredDevices}
           itemsPerPageSelect
           itemsPerPage={itemsPerPage}
           scopedColumns={{
             selections: (item) => {
               return (
                 <td className="py-2">
-                  <div className={styles.buttons}>
-                    <AppButton className={styles.editBtn}>
-                      <AppIcon name="cilPencil" size="l" />
+                  <div className="buttons">
+                    <AppButton className="editBtn">
+                      <AppIcon name="cilPencil" />
                     </AppButton>
-                    <AppButton className={styles.deleteBtn}>
-                      <AppIcon name="cilTrash" size="l" />
+                    <AppButton
+                      className="selectBtn"
+                      onClick={() => confirmDelete(item.Id)}
+                    >
+                      <AppIcon name="cilOptions" />
                     </AppButton>
                   </div>
                 </td>
@@ -160,7 +208,6 @@ export const AppSmartTable = ({
           }}
           selectable
           sorterValue={sorterValue}
-          tableFilterLabel={""}
           tableProps={{
             responsive: true,
             striped: true,
@@ -177,6 +224,20 @@ export const AppSmartTable = ({
           {...rest}
         />
       </CCardBody>
+      <CModal visible={modalVisible} onClose={() => setModalVisible(false)}>
+        <CModalHeader>
+          <CModalTitle>Confirm Deletion</CModalTitle>
+        </CModalHeader>
+        <CModalBody>Are you sure you want to delete this device?</CModalBody>
+        <CModalFooter>
+          <CButton color="secondary" onClick={() => setModalVisible(false)}>
+            Cancel
+          </CButton>
+          <CButton color="danger" onClick={handleConfirmDelete}>
+            Delete
+          </CButton>
+        </CModalFooter>
+      </CModal>
     </CCard>
   );
 };
@@ -191,3 +252,5 @@ AppSmartTable.propTypes = {
   tableProps: PropTypes.object,
   tableBodyProps: PropTypes.object,
 };
+
+export default AppSmartTable;

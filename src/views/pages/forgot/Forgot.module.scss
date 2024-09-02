@@ -1,17 +1,9 @@
-@import "src/scss/sharedStyles.module.scss";
+@import "src/scss/authSharedStyles.module.scss";
 
 .infoText {
   font-size: 14px;
 }
 
-.forgotBtn {
-  width: 100%;
-}
-
 .backToLoginText {
   margin-top: 1rem;
-}
-
-p {
-  color: rgba(255, 255, 255, 0.87);
 }

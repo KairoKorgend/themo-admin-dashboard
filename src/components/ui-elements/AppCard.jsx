@@ -10,7 +10,7 @@ import { CCard } from "@coreui/react";
  * @returns {JSX.Element} The AppCard component.
  */
 
-export const AppCard = ({ className, children, ...rest }) => {
+const AppCard = ({ className, children, ...rest }) => {
   return (
     <CCard className={`app-card ${className}`} {...rest}>
       {children}
@@ -22,3 +22,5 @@ AppCard.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node.isRequired,
 };
+
+export default AppCard;

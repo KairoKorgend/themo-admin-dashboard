@@ -7,20 +7,19 @@ import { useLoginMutation } from "src/features/auth/authApiSlice";
 import { useNavigate } from "react-router-dom";
 import styles from "./Register.module.scss";
 
-import { AppButton } from "src/components/ui-elements/index";
-import { AppIcon } from "src/components/ui-elements/index";
 import {
   AppForm,
   AppFormInput,
   AppInputGroup,
   AppInputGroupText,
-} from "src/components/forms/index";
-import { AppCol, AppRow } from "src/components/layout/index";
-import {
+  AppButton,
+  AppIcon,
   AppCard,
   AppCardBody,
   AppSpinner,
-} from "src/components/ui-elements/index";
+  AppCol,
+  AppRow,
+} from "src/components/index";
 
 const Register = () => {
   const { colorMode } = useAppColorMode();
@@ -45,6 +44,10 @@ const Register = () => {
 
   const [login, { isLoading }] = useLoginMutation();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    document.title = "Themo | Signup";
+  }, []);
 
   useEffect(() => {
     if (userRef.current) {
@@ -125,6 +128,10 @@ const Register = () => {
 
   const handleLoginClick = () => {
     navigate("/login");
+  };
+
+  const handleTermsClick = () => {
+    navigate("/terms");
   };
 
   const content = isLoading ? (
@@ -221,7 +228,10 @@ const Register = () => {
             onChange={handleTermsAccepted}
           />
           <label htmlFor="terms" className="ms-2 text-body-secondary">
-            I accept the terms and conditions
+            I accept the{" "}
+            <span className={styles.link} onClick={handleTermsClick}>
+              Terms and Conditions
+            </span>
           </label>
         </div>
         <p
@@ -234,7 +244,7 @@ const Register = () => {
         <AppRow className={styles.centerButton}>
           <AppCol xs={12}>
             <AppButton
-              color="dark"
+              color="primary"
               className={styles.registerBtn}
               type="submit"
             >

@@ -1,60 +1,41 @@
 // Variable overrides
-//
-// If you want to customize your project please add your variables below.
-
 $enable-deprecation-messages: false !default;
 
-$primary: #39f !default;
-$success: #51cc8a !default;
-$danger: #ef376e !default;
-$warning: #fc0 !default;
-$info: #747af2 !default;
+// Variables for light mode
+[data-coreui-theme="light"] {
+  color-scheme: light;
 
-$primary-text-emphasis: shade-color($primary, 60%) !default;
-$success-text-emphasis: shade-color($success, 60%) !default;
-$info-text-emphasis: shade-color($info, 60%) !default;
-$warning-text-emphasis: shade-color($warning, 60%) !default;
-$danger-text-emphasis: shade-color($danger, 60%) !default;
+  // table colors
+  --cui-table-text-color: #6b7689;
+  --cui-table-header-bg: #f9fafb;
+  --cui-table-border-bg: #f3f5f6;
+  --cui-table-odd-bg: var(--cui-body-bg);
+  --cui-table-even-bg: #fdfcfd;
 
-$primary-bg-subtle: tint-color($primary, 80%) !default;
-$success-bg-subtle: tint-color($success, 80%) !default;
-$info-bg-subtle: tint-color($info, 80%) !default;
-$warning-bg-subtle: tint-color($warning, 80%) !default;
-$danger-bg-subtle: tint-color($danger, 80%) !default;
+  // search bar colors
+  --cui-search-bg: #f1f3f5;
 
-$primary-border-subtle: tint-color($primary, 60%) !default;
-$success-border-subtle: tint-color($success, 60%) !default;
-$info-border-subtle: tint-color($info, 60%) !default;
-$warning-border-subtle: tint-color($warning, 60%) !default;
-$danger-border-subtle: tint-color($danger, 60%) !default;
+  .border-bottom {
+    border-bottom: 0px !important;
+  }
 
-$primary-gradient: (
-  "start": tint-color($primary, 30%),
-  "stop": shade-color($primary, 10%),
-) !default;
+  .header {
+    --cui-header-border: 1px solid #f3f5f6;
+    --cui-border-color: #f3f5f6;
+  }
+}
 
-$danger-gradient: (
-  "start": tint-color($danger, 30%),
-  "stop": shade-color($danger, 10%),
-) !default;
+// Variables for dark mode
+[data-coreui-theme="dark"] {
+  color-scheme: dark;
 
-$warning-gradient: (
-  "start": tint-color($warning, 30%),
-  "stop": shade-color($warning, 10%),
-) !default;
+  // table colors
+  --cui-table-text-color: var(--cui-body-color);
+  --cui-table-header-bg: #1f2127;
+  --cui-table-border-bg: var(--cui-body-bg);
+  --cui-table-odd-bg: var(--cui-body-bg);
+  --cui-table-even-bg: #1f2127;
 
-$success-gradient: (
-  "start": tint-color($success, 30%),
-  "stop": shade-color($success, 10%),
-) !default;
-
-$info-gradient: (
-  "start": tint-color($info, 30%),
-  "stop": shade-color($info, 10%),
-) !default;
-
-// $font-size-base: 0.9375rem !default;
-$border-color-translucent: rgba(#080a0c, 0.0875) !default;
-$footer-bg: var(--cui-body-bg) !default;
-$table-cell-padding-y: 0.75rem !default;
-$table-cell-padding-x: 0.75rem !default;
+  // search bar colors
+  --cui-search-bg: #f1f3f5;
+}

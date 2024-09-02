@@ -10,7 +10,7 @@ import { CWidgetStatsF } from "@coreui/react";
  * @returns {JSX.Element} The AppWidgetStatsF component.
  */
 
-export const AppWidgetStatsF = ({
+const AppWidgetStatsF = ({
   className = "",
   color = "primary",
   icon = null,
@@ -38,3 +38,5 @@ AppWidgetStatsF.propTypes = {
   title: PropTypes.string,
   value: PropTypes.string,
 };
+
+export default AppWidgetStatsF;

@@ -2,9 +2,8 @@ import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { CChartLine } from "@coreui/react-chartjs";
 import { getStyle } from "@coreui/utils";
-import "./AppLineChart.scss";
 
-export const AppLineChart = ({ data, options }) => {
+const AppLineChart = ({ data, options }) => {
   const chartRef = useRef(null);
 
   useEffect(() => {

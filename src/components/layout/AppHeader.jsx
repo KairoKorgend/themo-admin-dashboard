@@ -2,7 +2,11 @@ import React, { useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { CHeader } from "@coreui/react";
+
 import {
+  AppContainer,
+  AppIcon,
+  AppButton,
   AppHeaderToggler,
   AppHeaderNav,
   AppDropdown,
@@ -10,9 +14,7 @@ import {
   AppDropdownMenu,
   AppDropdownItem,
   AppHeaderDropdown,
-} from "src/components/navigation/index.js";
-import { AppContainer } from "src/components/layout/index.js";
-import { AppIcon } from "src/components/ui-elements/index.js";
+} from "src/components/index";
 import useAppColorMode from "src/hooks/useAppColorMode";
 import { set } from "src/features/ui/uiSlice";
 
@@ -39,6 +41,10 @@ const AppHeader = () => {
       document.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const toggleColorMode = () => {
+    setColorMode(colorMode === "light" ? "dark" : "light");
+  };
 
   return (
     <CHeader position="sticky" className="mb-4 p-0" ref={headerRef}>
@@ -86,35 +92,17 @@ const AppHeader = () => {
             </AppDropdownMenu>
           </AppDropdown>
           <AppDropdown variant="nav-item" placement="bottom-end">
-            <AppDropdownToggle>
+            <AppButton onClick={toggleColorMode}>
               {colorMode === "dark" ? (
-                <AppIcon name="cilMoon" size="lg" />
-              ) : colorMode === "auto" ? (
-                <AppIcon name="cilContrast" size="lg" />
+                <AppIcon name="cilSun" size="lg" style={{ color: "yellow" }} />
               ) : (
-                <AppIcon name="cilSun" size="lg" />
+                <AppIcon
+                  name="cilMoon"
+                  size="lg"
+                  style={{ color: "turquoise" }}
+                />
               )}
-            </AppDropdownToggle>
-            <AppDropdownMenu>
-              <AppDropdownItem
-                active={colorMode === "light"}
-                onClick={() => setColorMode("light")}
-              >
-                <AppIcon className="me-2" name="cilSun" size="lg" /> Light
-              </AppDropdownItem>
-              <AppDropdownItem
-                active={colorMode === "dark"}
-                onClick={() => setColorMode("dark")}
-              >
-                <AppIcon className="me-2" name="cilMoon" size="lg" /> Dark
-              </AppDropdownItem>
-              <AppDropdownItem
-                active={colorMode === "auto"}
-                onClick={() => setColorMode("auto")}
-              >
-                <AppIcon className="me-2" name="cilContrast" size="lg" /> Auto
-              </AppDropdownItem>
-            </AppDropdownMenu>
+            </AppButton>
           </AppDropdown>
           <li className="nav-item py-1">
             <div className="vr h-100 mx-2 text-body text-opacity-75"></div>

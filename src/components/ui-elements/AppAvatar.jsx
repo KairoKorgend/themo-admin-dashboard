@@ -3,14 +3,7 @@ import PropTypes from "prop-types";
 import { CAvatar } from "@coreui/react";
 import classNames from "classnames";
 
-export const AppAvatar = ({
-  size,
-  src,
-  color,
-  textColor,
-  className,
-  ...rest
-}) => {
+const AppAvatar = ({ size, src, color, textColor, className, ...rest }) => {
   const avatarClass = classNames(className, {
     [`text-${textColor}`]: textColor,
   });
@@ -33,3 +26,5 @@ AppAvatar.propTypes = {
   textColor: PropTypes.string,
   className: PropTypes.string,
 };
+
+export default AppAvatar;

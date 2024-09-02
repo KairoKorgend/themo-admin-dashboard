@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { CButton } from "@coreui/react";
+import "./styles/AppButton.scss";
 
 /**
  * AppButton wraps the CButton component to provide a consistent interface
@@ -10,9 +11,9 @@ import { CButton } from "@coreui/react";
  * @returns {JSX.Element} The AppButton component.
  */
 
-export const AppButton = ({ className, children, ...rest }) => {
+const AppButton = ({ className, children, ...rest }) => {
   return (
-    <CButton className={`app-button ${className}`} {...rest}>
+    <CButton className={`btn-cd-primary ${className}`} {...rest}>
       {children}
     </CButton>
   );
@@ -22,3 +23,5 @@ AppButton.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node.isRequired,
 };
+
+export default AppButton;

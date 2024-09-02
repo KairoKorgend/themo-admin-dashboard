@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import CIcon from "@coreui/icons-react";
 import * as icons from "src/icons";
 
-export const AppIcon = ({ name, className = "", ...props }) => {
+const AppIcon = ({ name, className = "", ...props }) => {
   const IconComponent = icons[name];
 
   if (!IconComponent) {
@@ -18,3 +18,5 @@ AppIcon.propTypes = {
   name: PropTypes.string.isRequired,
   className: PropTypes.string,
 };
+
+export default AppIcon;

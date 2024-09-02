@@ -10,7 +10,7 @@ import { CButtonGroup } from "@coreui/react";
  * @returns {JSX.Element} The AppButtonGroup component.
  */
 
-export const AppButtonGroup = ({ className, children, ...rest }) => {
+const AppButtonGroup = ({ className, children, ...rest }) => {
   return (
     <CButtonGroup className={`app-button-group ${className}`} {...rest}>
       {children}
@@ -22,3 +22,5 @@ AppButtonGroup.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node.isRequired,
 };
+
+export default AppButtonGroup;

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 import { CNavLink } from "@coreui/react";
 
-export const AppNavLink = ({
+const AppNavLink = ({
   to = undefined,
   href = undefined,
   children,
@@ -29,3 +29,5 @@ AppNavLink.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
 };
+
+export default AppNavLink;

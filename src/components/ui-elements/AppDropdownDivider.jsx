@@ -10,7 +10,7 @@ import { CDropdownDivider } from "@coreui/react";
  * @returns {JSX.Element} The AppDropdownDivider component.
  */
 
-export const AppDropdownDivider = ({ children, ...props }) => {
+const AppDropdownDivider = ({ children, ...props }) => {
   return <CDropdownDivider {...props}>{children}</CDropdownDivider>;
 };
 
@@ -18,3 +18,5 @@ AppDropdownDivider.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
 };
+
+export default AppDropdownDivider;

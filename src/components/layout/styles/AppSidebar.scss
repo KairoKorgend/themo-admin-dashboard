@@ -1,0 +1,19 @@
+@import "src/scss/variables.scss";
+
+// Define CSS variables for the logo images
+:root {
+  --logo-light: url("src/assets/brand/themo_logo_black.png");
+  --logo-dark: url("src/assets/brand/themo_logo_white.png");
+}
+
+[data-coreui-theme="light"] {
+  .sidebar-logo {
+    content: var(--logo-light);
+  }
+}
+
+[data-coreui-theme="dark"] {
+  .sidebar-logo {
+    content: var(--logo-dark);
+  }
+}

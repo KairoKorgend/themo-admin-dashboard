@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { CCloseButton } from "@coreui/react";
 
-export const AppCloseButton = ({
+const AppCloseButton = ({
   children,
   className = "d-lg-none",
   dark = true,
@@ -21,3 +21,5 @@ AppCloseButton.propTypes = {
   dark: PropTypes.bool,
   onClick: PropTypes.func,
 };
+
+export default AppCloseButton;

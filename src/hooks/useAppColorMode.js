@@ -6,14 +6,14 @@ const useAppColorMode = () => {
 
   useEffect(() => {
     const body = document.body;
-    body.classList.remove("light-mode", "dark-mode", "auto-mode");
+    body.removeAttribute("data-coreui-theme");
 
     if (colorMode === "dark") {
-      body.classList.add("dark-mode");
+      body.setAttribute("data-coreui-theme", "dark");
     } else if (colorMode === "light") {
-      body.classList.add("light-mode");
+      body.setAttribute("data-coreui-theme", "light");
     } else {
-      body.classList.add("auto-mode");
+      body.setAttribute("data-coreui-theme", "auto");
     }
   }, [colorMode]);
 

@@ -10,7 +10,7 @@ import { CCardBody } from "@coreui/react";
  * @returns {JSX.Element} The AppCardBody component.
  */
 
-export const AppCardBody = ({ className, children, ...rest }) => {
+const AppCardBody = ({ className, children, ...rest }) => {
   return (
     <CCardBody className={`app-card-body ${className}`} {...rest}>
       {children}
@@ -22,3 +22,5 @@ AppCardBody.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node.isRequired,
 };
+
+export default AppCardBody;

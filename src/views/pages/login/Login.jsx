@@ -7,20 +7,19 @@ import { useLoginMutation } from "src/features/auth/authApiSlice";
 import { useNavigate } from "react-router-dom";
 import styles from "./Login.module.scss";
 
-import { AppButton } from "src/components/ui-elements/index";
-import { AppIcon } from "src/components/ui-elements/index";
 import {
+  AppCol,
+  AppRow,
   AppForm,
   AppFormInput,
   AppInputGroup,
   AppInputGroupText,
-} from "src/components/forms/index";
-import { AppCol, AppRow } from "src/components/layout/index";
-import {
+  AppIcon,
+  AppButton,
   AppCard,
   AppCardBody,
   AppSpinner,
-} from "src/components/ui-elements/index";
+} from "src/components/index";
 
 const Login = () => {
   const { colorMode } = useAppColorMode();
@@ -39,6 +38,10 @@ const Login = () => {
 
   const [login, { isLoading }] = useLoginMutation();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    document.title = "Themo | Login";
+  }, []);
 
   useEffect(() => {
     userRef.current.focus();
@@ -138,7 +141,11 @@ const Login = () => {
         </p>
         <AppRow className={styles.centerButton}>
           <AppCol xs={12}>
-            <AppButton color="dark" className={styles.loginBtn} type="submit">
+            <AppButton
+              color="primary"
+              className={`${styles.loginBtn}`}
+              type="submit"
+            >
               Login
             </AppButton>
           </AppCol>
