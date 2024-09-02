@@ -9,6 +9,10 @@
 
 // dark mode styling
 [data-coreui-theme="dark"] {
+  .searchContainer {
+    color: black;
+  }
+
   .searchContainer input {
     background-color: var(--cui-search-bg);
   }
@@ -20,8 +24,8 @@
 }
 
 .searchContainer input {
-  width: 20rem;
-  height: 2.2rem;
+  width: 22rem;
+  height: 2.4rem;
   border: none;
   border-radius: 16px;
   padding-left: 2.3rem;

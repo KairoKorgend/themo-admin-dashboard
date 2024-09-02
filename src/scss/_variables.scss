@@ -1,6 +1,28 @@
 // Variable overrides
 $enable-deprecation-messages: false !default;
 
+$primary: #886ade;
+
+// sidebar colors
+.sidebar-nav {
+  --cui-sidebar-nav-link-icon-color: grey;
+  --cui-sidebar-nav-link-hover-icon-color: grey;
+  --cui-sidebar-nav-link-active-color: #ffffff;
+  --cui-sidebar-nav-link-active-icon-color: #ffffff;
+  --cui-sidebar-nav-link-active-bg: var(--cui-primary);
+}
+
+.sidebar-nav .nav-link.active {
+  --cui-sidebar-nav-link-hover-icon-color: white;
+  --cui-sidebar-nav-link-hover-bg: var(--cui-primary);
+  --cui-sidebar-nav-link-hover-color: white;
+}
+
+// pagination colors
+.pagination {
+  --cui-pagination-color: grey;
+}
+
 // Variables for light mode
 [data-coreui-theme="light"] {
   color-scheme: light;
@@ -19,9 +41,8 @@ $enable-deprecation-messages: false !default;
     border-bottom: 0px !important;
   }
 
-  .header {
-    --cui-header-border: 1px solid #f3f5f6;
-    --cui-border-color: #f3f5f6;
+  .border-top {
+    border-top: 1px !important;
   }
 }
 
@@ -37,5 +58,5 @@ $enable-deprecation-messages: false !default;
   --cui-table-even-bg: #1f2127;
 
   // search bar colors
-  --cui-search-bg: #f1f3f5;
+  --cui-search-bg: #f9fafb;
 }

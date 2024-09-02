@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import {
   AppDropdown,
   AppDropdownToggle,
@@ -11,6 +12,10 @@ import {
 import styles from "./Devices.module.scss";
 
 const Devices = () => {
+  useEffect(() => {
+    document.title = "Themo | Devices";
+  }, []);
+
   return (
     <>
       <div className={styles.headerContainer}>
@@ -18,10 +23,6 @@ const Devices = () => {
           <h3 className={styles.headerText}>Devices</h3>
         </div>
         <div className={styles.headerButtons}>
-          <AppButton className={styles.addDeviceBtn} color="primary">
-            <AppIcon name="cilPlus" className="me-2" />
-            Add Device
-          </AppButton>
           <AppDropdown>
             <AppDropdownToggle className={styles.navItem} color="primary">
               Quick Actions

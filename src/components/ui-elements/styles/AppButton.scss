@@ -1,8 +1,5 @@
 @import "src/scss/variables.scss";
 
-[data-coreui-theme="dark"] {
-  .btn-primary {
-    --cui-btn-bg: var(--cui-primary) !important;
-    --cui-btn-border-color: var(--cui-primary) !important;
-  }
+.btn-primary {
+  --cui-btn-color: white !important;
 }

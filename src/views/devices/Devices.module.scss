@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.3rem;
 
   @media (max-width: 768px) {
     padding-top: 5px;
@@ -23,13 +23,13 @@
 }
 
 .headerText {
-  font-size: 26px;
+  font-size: 28px;
 }
 
 .navItem {
-  background-color: white;
-  border-color: rgb(204, 204, 204);
-  color: black;
+  //   background-color: var(--cui-primary);
+  //   border-color: var(--cui-primary);
+  border-radius: 18px;
   width: 100%;
 
   @media (max-width: 768px) {
@@ -38,19 +38,16 @@
 }
 
 .navItem:hover {
+  //   background-color: var(--cui-primary);
   color: #f0f0f0;
 }
 
-.addDeviceBtn {
-  color: white;
-  margin-right: 10px;
+// .addDeviceBtn {
+//   color: white;
+//   margin-right: 10px;
 
-  @media (max-width: 768px) {
-    margin-right: 0px;
-    width: 100%;
-  }
-}
-
-.addDeviceBtn:hover {
-  color: #f0f0f0;
-}
+//   @media (max-width: 768px) {
+//     margin-right: 0px;
+//     width: 100%;
+//   }
+// }

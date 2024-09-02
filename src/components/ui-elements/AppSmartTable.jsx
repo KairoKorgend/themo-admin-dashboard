@@ -173,7 +173,11 @@ const AppSmartTable = ({
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <AppButton onClick={deleteSelectedDevices} color="danger">
+          <AppButton
+            className="deleteBtn"
+            onClick={deleteSelectedDevices}
+            color="danger"
+          >
             <AppIcon name="cilTrash" className="me-2" />
             {`Delete (${selectedItems.length})`}
           </AppButton>
