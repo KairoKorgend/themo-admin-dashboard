@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { CSidebar } from "@coreui/react";
 import useAppColorMode from "src/hooks/useAppColorMode"; // Adjust the import path as necessary
 
-import "./styles/AppSidebar.scss";
+import styles from "src/scss/SharedStyles.module.scss";
 
 import {
   AppSidebarHeader,
@@ -39,7 +39,7 @@ const navigation = [
 const AppSidebar = () => {
   const dispatch = useDispatch();
   const sidebarShow = useSelector((state) => state.ui.sidebarShow);
-  const { colorMode } = useAppColorMode(); // Use the custom hook to get the current color mode
+  const { colorMode } = useAppColorMode();
 
   useEffect(() => {
     const body = document.body;
@@ -58,7 +58,7 @@ const AppSidebar = () => {
     >
       <AppSidebarHeader>
         <div
-          className="sidebar-logo"
+          className={styles.logoImage}
           style={{
             height: 32,
             backgroundSize: "contain",

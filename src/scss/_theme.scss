@@ -1,4 +1,4 @@
-@import "variables";
+@import "src/scss/variables";
 
 body {
   position: relative;
@@ -71,4 +71,43 @@ body {
   min-height: calc(
     3rem + 1px
   ); // stylelint-disable-line function-disallowed-list
+}
+
+// Sidebar styles
+.sidebar-nav .nav-link {
+  --cui-sidebar-nav-link-icon-color: #{$sidebar-nav-link-icon-color} !important;
+  --cui-sidebar-nav-link-hover-icon-color: #{$sidebar-nav-link-hover-icon-color};
+  --cui-sidebar-nav-link-active-color: #{$sidebar-nav-link-active-color};
+  --cui-sidebar-nav-link-active-icon-color: #{$sidebar-nav-link-active-icon-color};
+  --cui-sidebar-nav-link-active-bg: #{$sidebar-nav-link-active-bg} !important;
+}
+
+.sidebar-nav .nav-link.active {
+  --cui-sidebar-nav-link-hover-icon-color: #{$sidebar-nav-link-hover-icon-color};
+  --cui-sidebar-nav-link-hover-bg: #{$sidebar-nav-link-hover-bg};
+  --cui-sidebar-nav-link-hover-color: #{$sidebar-nav-link-hover-color};
+  background-color: #{$primary} !important;
+}
+
+// Pagination styles
+.pagination {
+  --cui-pagination-color: #{$pagination-color};
+}
+
+// Light mode styles
+[data-coreui-theme="light"] {
+  color-scheme: light;
+
+  .border-bottom {
+    border-bottom: 0px !important;
+  }
+
+  .border-top {
+    border-top: 1px !important;
+  }
+}
+
+// Dark mode styles
+[data-coreui-theme="dark"] {
+  color-scheme: dark;
 }

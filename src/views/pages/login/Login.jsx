@@ -1,6 +1,5 @@
 import React from "react";
 import { useRef, useState, useEffect } from "react";
-import useAppColorMode from "src/hooks/useAppColorMode";
 import { useDispatch } from "react-redux";
 import { setCredentials } from "src/features/auth/authSlice";
 import { useLoginMutation } from "src/features/auth/authApiSlice";
@@ -22,13 +21,6 @@ import {
 } from "src/components/index";
 
 const Login = () => {
-  const { colorMode } = useAppColorMode();
-
-  const logoSrc =
-    colorMode === "dark"
-      ? "src/assets/images/themo_logo_light.png"
-      : "src/assets/images/themo_logo_light.png";
-
   const userRef = useRef();
   const errRef = useRef();
   const [user, setUser] = useState("");
@@ -174,7 +166,7 @@ const Login = () => {
     <div id={styles.lBg}>
       <div className={styles.loginContainer}>
         <AppCard className={styles.loginCard}>
-          <img src={logoSrc} alt="Login Avatar" className="mb-2" />
+          <img className={styles.logoImage} alt="Themo Logo" />
           <AppCardBody className={styles.loginForm}>{content}</AppCardBody>
         </AppCard>
       </div>

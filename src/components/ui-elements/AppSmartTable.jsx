@@ -11,7 +11,7 @@ import {
   CModalFooter,
   CButton,
 } from "@coreui/react-pro";
-import { AppIcon, AppButton, SearchInputWithIcon } from "src/components/index";
+import { AppIcon, AppButton, CustomSearchInput } from "src/components/index";
 import "./styles/AppSmartTable.scss";
 
 const AppSmartTable = ({
@@ -168,13 +168,13 @@ const AppSmartTable = ({
     <CCard className="mb-4">
       <CCardBody className="p-4">
         <div className="table-header">
-          <SearchInputWithIcon
+          <CustomSearchInput
             placeholder="Search"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
           <AppButton
-            className="deleteBtn"
+            className="delete-btn"
             onClick={deleteSelectedDevices}
             color="danger"
           >
@@ -196,11 +196,11 @@ const AppSmartTable = ({
               return (
                 <td className="py-2">
                   <div className="buttons">
-                    <AppButton className="editBtn">
+                    <AppButton className="edit-btn">
                       <AppIcon name="cilPencil" />
                     </AppButton>
                     <AppButton
-                      className="selectBtn"
+                      className="select-btn"
                       onClick={() => confirmDelete(item.Id)}
                     >
                       <AppIcon name="cilOptions" />

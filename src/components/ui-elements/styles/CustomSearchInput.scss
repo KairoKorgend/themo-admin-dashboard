@@ -2,28 +2,32 @@
 
 // light mode styling
 [data-coreui-theme="light"] {
-  .searchContainer input {
+  --cui-search-bg: #{$light-search-bg};
+
+  .search-container input {
     background-color: var(--cui-search-bg);
   }
 }
 
 // dark mode styling
 [data-coreui-theme="dark"] {
-  .searchContainer {
+  --cui-search-bg: #{$dark-search-bg};
+
+  .search-container {
     color: black;
   }
 
-  .searchContainer input {
+  .search-container input {
     background-color: var(--cui-search-bg);
   }
 }
 
-.searchContainer {
+.search-container {
   position: relative;
   display: inline-block;
 }
 
-.searchContainer input {
+.search-container input {
   width: 22rem;
   height: 2.4rem;
   border: none;
@@ -31,7 +35,7 @@
   padding-left: 2.3rem;
 }
 
-.searchIcon {
+.search-icon {
   position: absolute;
   left: 15px;
   top: 50%;
@@ -40,7 +44,7 @@
 }
 
 @media (max-width: 768px) {
-  .searchContainer input {
+  .search-container input {
     width: 15rem;
   }
 }

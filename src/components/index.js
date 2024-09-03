@@ -32,7 +32,7 @@ import AppDropdownDivider from "./ui-elements/AppDropdownDivider.jsx";
 import AppSmartTable from "./ui-elements/AppSmartTable.jsx";
 import AppWidgetStatsF from "./ui-elements/AppWidgetStatsF.jsx";
 import AppSpinner from "./ui-elements/AppSpinner.jsx";
-import SearchInputWithIcon from "./ui-elements/SearchInputWithIcon.jsx";
+import CustomSearchInput from "./ui-elements/CustomSearchInput.jsx";
 
 export {
   AppNavItem,
@@ -69,5 +69,5 @@ export {
   AppSmartTable,
   AppWidgetStatsF,
   AppSpinner,
-  SearchInputWithIcon,
+  CustomSearchInput,
 };

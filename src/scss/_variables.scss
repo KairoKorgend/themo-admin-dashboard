@@ -3,60 +3,30 @@ $enable-deprecation-messages: false !default;
 
 $primary: #886ade;
 
-// sidebar colors
-.sidebar-nav {
-  --cui-sidebar-nav-link-icon-color: grey;
-  --cui-sidebar-nav-link-hover-icon-color: grey;
-  --cui-sidebar-nav-link-active-color: #ffffff;
-  --cui-sidebar-nav-link-active-icon-color: #ffffff;
-  --cui-sidebar-nav-link-active-bg: var(--cui-primary);
-}
+// Sidebar colors
+$sidebar-nav-link-icon-color: grey;
+$sidebar-nav-link-hover-icon-color: white;
+$sidebar-nav-link-active-color: #ffffff;
+$sidebar-nav-link-active-icon-color: #ffffff;
+$sidebar-nav-link-active-bg: $primary;
+$sidebar-nav-link-hover-bg: rgb(180, 180, 180);
+$sidebar-nav-link-hover-color: white;
 
-.sidebar-nav .nav-link.active {
-  --cui-sidebar-nav-link-hover-icon-color: white;
-  --cui-sidebar-nav-link-hover-bg: var(--cui-primary);
-  --cui-sidebar-nav-link-hover-color: white;
-}
+// Pagination colors
+$pagination-color: grey;
 
-// pagination colors
-.pagination {
-  --cui-pagination-color: grey;
-}
+// Light mode variables
+$light-table-text-color: #6b7689;
+$light-table-header-bg: #f9fafb;
+$light-table-border-bg: #f3f5f6;
+$light-table-odd-bg: var(--cui-body-bg);
+$light-table-even-bg: #f8f8f8;
+$light-search-bg: #f1f3f5;
 
-// Variables for light mode
-[data-coreui-theme="light"] {
-  color-scheme: light;
-
-  // table colors
-  --cui-table-text-color: #6b7689;
-  --cui-table-header-bg: #f9fafb;
-  --cui-table-border-bg: #f3f5f6;
-  --cui-table-odd-bg: var(--cui-body-bg);
-  --cui-table-even-bg: #fdfcfd;
-
-  // search bar colors
-  --cui-search-bg: #f1f3f5;
-
-  .border-bottom {
-    border-bottom: 0px !important;
-  }
-
-  .border-top {
-    border-top: 1px !important;
-  }
-}
-
-// Variables for dark mode
-[data-coreui-theme="dark"] {
-  color-scheme: dark;
-
-  // table colors
-  --cui-table-text-color: var(--cui-body-color);
-  --cui-table-header-bg: #1f2127;
-  --cui-table-border-bg: var(--cui-body-bg);
-  --cui-table-odd-bg: var(--cui-body-bg);
-  --cui-table-even-bg: #1f2127;
-
-  // search bar colors
-  --cui-search-bg: #f9fafb;
-}
+// Dark mode variables
+$dark-table-text-color: var(--cui-body-color);
+$dark-table-header-bg: #1f2127;
+$dark-table-border-bg: var(--cui-body-bg);
+$dark-table-odd-bg: var(--cui-body-bg);
+$dark-table-even-bg: #1f2127;
+$dark-search-bg: #f9fafb;

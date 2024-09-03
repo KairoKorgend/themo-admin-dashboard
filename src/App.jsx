@@ -1,8 +1,8 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-
 import RequireAuth from "./features/auth/RequireAuth";
 import { AppSpinner } from "./components/index";
+import useAppColorMode from "./hooks/useAppColorMode";
 import "./scss/style.scss";
 
 const AppLayout = React.lazy(() => import("./layout/AppLayout.jsx"));
@@ -16,6 +16,15 @@ const Page404 = React.lazy(() => import("./views/pages/page404/Page404.js"));
 const Page500 = React.lazy(() => import("./views/pages/page500/Page500.js"));
 
 const App = () => {
+  const { setColorMode } = useAppColorMode();
+
+  useEffect(() => {
+    const storedColorMode = localStorage.getItem("color-mode");
+    if (storedColorMode) {
+      setColorMode(storedColorMode);
+    }
+  }, [setColorMode]);
+
   return (
     <Router>
       <Suspense

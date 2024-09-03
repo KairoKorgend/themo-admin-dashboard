@@ -268,7 +268,7 @@ const Register = () => {
     <div id={styles.lBg}>
       <div className={styles.registerContainer}>
         <AppCard className={styles.registerCard}>
-          <img src={logoSrc} alt="Register Avatar" className="mb-2" />
+          <img className={styles.logoImage} alt="Themo Logo" />
           <AppCardBody className={styles.registerForm}>{content}</AppCardBody>
         </AppCard>
       </div>

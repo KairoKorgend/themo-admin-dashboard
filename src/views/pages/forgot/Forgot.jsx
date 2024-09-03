@@ -53,7 +53,7 @@ const Login = () => {
     <div id={styles.lBg}>
       <div className={styles.forgotPwdContainer}>
         <AppCard className={styles.forgotPwdCard}>
-          <img src={logoSrc} alt="Login Avatar" className="mb-2" />
+          <img className={styles.logoImage} alt="Themo Logo" />
           <AppCardBody>
             <p className={styles.infoText}>
               Enter your email and we'll send you a link to reset your password.

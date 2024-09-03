@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { AppIcon } from "src/components/index";
-import "./styles/SearchInputWithIcon.scss";
+import "./styles/CustomSearchInput.scss";
 
 const SearchInputWithIcon = ({ placeholder, value, onChange }) => (
-  <div className="searchContainer">
+  <div className="search-container">
     <input
       type="text"
       className="formControl"
@@ -12,7 +12,7 @@ const SearchInputWithIcon = ({ placeholder, value, onChange }) => (
       value={value}
       onChange={onChange}
     />
-    <AppIcon name="cilSearch" className="searchIcon" />
+    <AppIcon name="cilSearch" className="search-icon" />
   </div>
 );
 

@@ -6,7 +6,13 @@ const useAppColorMode = () => {
 
   useEffect(() => {
     const body = document.body;
-    body.removeAttribute("data-coreui-theme");
+    const storedColorMode = localStorage.getItem("color-mode");
+
+    if (storedColorMode) {
+      body.setAttribute("data-coreui-theme", storedColorMode);
+    } else {
+      body.setAttribute("data-coreui-theme", colorMode);
+    }
 
     if (colorMode === "dark") {
       body.setAttribute("data-coreui-theme", "dark");

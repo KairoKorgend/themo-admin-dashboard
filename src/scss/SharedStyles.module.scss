@@ -1,3 +1,22 @@
+// shared logo styles
+:root {
+  --logo-light: url("src/assets/brand/themo_logo_black.png");
+  --logo-dark: url("src/assets/brand/themo_logo_white.png");
+}
+
+[data-coreui-theme="light"] {
+  .logoImage {
+    content: var(--logo-light);
+  }
+}
+
+[data-coreui-theme="dark"] {
+  .logoImage {
+    content: var(--logo-dark);
+  }
+}
+
+// authentication shared styles
 #lBg {
   position: relative;
   min-height: 100vh;
@@ -49,9 +68,9 @@
     justify-content: center;
   }
 
-  img {
-    width: 200px;
-    border-radius: 50%;
+  .logoImage {
+    width: 11rem;
+    margin-bottom: 1rem;
   }
 
   .loginForm,
