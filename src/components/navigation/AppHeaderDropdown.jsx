@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logOut } from "src/features/auth/authSlice.js";
 
+import "./styles/AppHeaderDropdown.scss";
+
 import {
   AppDropdown,
   AppDropdownItem,
@@ -13,7 +15,6 @@ import {
   AppDropdownDivider,
 } from "src/components/index";
 
-import avatar from "src/assets/images/avatar.jpg";
 const AppHeaderDropdown = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -38,7 +39,9 @@ const AppHeaderDropdown = () => {
         className="py-0 pe-0"
         caret={false}
       >
-        <AppAvatar src={avatar} size="md" />
+        <AppAvatar className="user-avatar" size="md">
+          <AppIcon name="cilUser" className="text-white" size="xl" />
+        </AppAvatar>
       </AppDropdownToggle>
       <AppDropdownMenu className="pt-2" placement="bottom-end">
         <AppDropdownItem onClick={handleAccountClick}>
